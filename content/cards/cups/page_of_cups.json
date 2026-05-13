@@ -1,0 +1,80 @@
+{
+  "id": "page_of_cups",
+  "slug": "page-of-cups",
+  "name": {
+    "es": "Sota de Copas",
+    "en": "Page of Cups",
+    "short": "Sota de Copas"
+  },
+  "taxonomy": {
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "page"
+  },
+  "search": {
+    "aliases": [
+      "Sota de Copas",
+      "Page of Cups",
+      "page-of-cups",
+      "page of cups",
+      "cups",
+      "page",
+      "page cups"
+    ],
+    "keywords": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "tags": [
+      "minor",
+      "cups"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "cups",
+        "situacion",
+        "decision",
+        "aprendizaje"
+      ],
+      "oneLine": "Sota de Copas habla de cups y de mirar la situacion con calma.",
+      "quick": "Sota de Copas suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, Sota de Copas invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, Sota de Copas marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, Sota de Copas aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "Sota de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "Sota de Copas invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, Sota de Copas pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, Sota de Copas sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, Sota de Copas recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "knight_of_cups",
+    "four_of_swords",
+    "two_of_wands"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/page_of_cups.svg",
+    "full": "/cards/full/page_of_cups.svg",
+    "template": "/vision/rws-v1/templates/page_of_cups.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

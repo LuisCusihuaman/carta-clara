@@ -1,0 +1,80 @@
+{
+  "id": "ace_of_swords",
+  "slug": "ace-of-swords",
+  "name": {
+    "es": "As de Espadas",
+    "en": "Ace of Swords",
+    "short": "As de Espadas"
+  },
+  "taxonomy": {
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "ace"
+  },
+  "search": {
+    "aliases": [
+      "As de Espadas",
+      "Ace of Swords",
+      "ace-of-swords",
+      "ace of swords",
+      "swords",
+      "ace",
+      "ace swords"
+    ],
+    "keywords": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "tags": [
+      "minor",
+      "swords"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "swords",
+        "situacion",
+        "decision",
+        "aprendizaje"
+      ],
+      "oneLine": "As de Espadas habla de swords y de mirar la situacion con calma.",
+      "quick": "As de Espadas suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, As de Espadas invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, As de Espadas marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, As de Espadas aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "As de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "As de Espadas invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, As de Espadas pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, As de Espadas sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, As de Espadas recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "two_of_swords",
+    "eight_of_swords",
+    "six_of_wands"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/ace_of_swords.svg",
+    "full": "/cards/full/ace_of_swords.svg",
+    "template": "/vision/rws-v1/templates/ace_of_swords.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

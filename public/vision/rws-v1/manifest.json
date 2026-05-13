@@ -1,0 +1,18 @@
+{
+  "deckId": "rws-v1",
+  "deckName": "Rider Waite Smith placeholder",
+  "version": "rws-v1",
+  "cardAspectRatio": 0.6667,
+  "cards": [
+    {
+      "cardId": "the_moon",
+      "template": "/vision/rws-v1/templates/the_moon.webp",
+      "hash": "00001111"
+    },
+    {
+      "cardId": "three_of_swords",
+      "template": "/vision/rws-v1/templates/three_of_swords.webp",
+      "hash": "11110000"
+    }
+  ]
+}

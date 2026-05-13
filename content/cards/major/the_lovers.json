@@ -1,0 +1,80 @@
+{
+  "id": "the_lovers",
+  "slug": "los-enamorados",
+  "name": {
+    "es": "Los Enamorados",
+    "en": "The Lovers",
+    "short": "Los Enamorados"
+  },
+  "taxonomy": {
+    "arcana": "major",
+    "number": 6,
+    "roman": "VI"
+  },
+  "search": {
+    "aliases": [
+      "Los Enamorados",
+      "The Lovers",
+      "los-enamorados",
+      "the lovers",
+      "6",
+      "VI",
+      "arcano 6"
+    ],
+    "keywords": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "tags": [
+      "major",
+      "major"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "cambio",
+        "intuicion",
+        "claridad",
+        "camino"
+      ],
+      "oneLine": "Los Enamorados habla de cambio y de mirar la situacion con calma.",
+      "quick": "Los Enamorados suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, Los Enamorados invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, Los Enamorados marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, Los Enamorados aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "Los Enamorados invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "Los Enamorados invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, Los Enamorados pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, Los Enamorados sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, Los Enamorados recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "the_chariot",
+    "death",
+    "four_of_cups"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/the_lovers.svg",
+    "full": "/cards/full/the_lovers.svg",
+    "template": "/vision/rws-v1/templates/the_lovers.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

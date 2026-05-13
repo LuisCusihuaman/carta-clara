@@ -1,0 +1,80 @@
+{
+  "id": "four_of_cups",
+  "slug": "four-of-cups",
+  "name": {
+    "es": "Cuatro de Copas",
+    "en": "Four of Cups",
+    "short": "Cuatro de Copas"
+  },
+  "taxonomy": {
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "four"
+  },
+  "search": {
+    "aliases": [
+      "Cuatro de Copas",
+      "Four of Cups",
+      "four-of-cups",
+      "four of cups",
+      "cups",
+      "four",
+      "four cups"
+    ],
+    "keywords": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "tags": [
+      "minor",
+      "cups"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "cups",
+        "situacion",
+        "decision",
+        "aprendizaje"
+      ],
+      "oneLine": "Cuatro de Copas habla de cups y de mirar la situacion con calma.",
+      "quick": "Cuatro de Copas suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, Cuatro de Copas invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, Cuatro de Copas marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, Cuatro de Copas aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "Cuatro de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "Cuatro de Copas invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, Cuatro de Copas pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, Cuatro de Copas sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, Cuatro de Copas recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "five_of_cups",
+    "page_of_cups",
+    "nine_of_swords"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/four_of_cups.svg",
+    "full": "/cards/full/four_of_cups.svg",
+    "template": "/vision/rws-v1/templates/four_of_cups.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "three_of_swords",
+  "slug": "three-of-swords",
+  "name": {
+    "es": "Tres de Espadas",
+    "en": "Three of Swords",
+    "short": "Tres de Espadas"
+  },
+  "taxonomy": {
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "three"
+  },
+  "search": {
+    "aliases": [
+      "Tres de Espadas",
+      "Three of Swords",
+      "three-of-swords",
+      "three of swords",
+      "swords",
+      "three",
+      "three swords"
+    ],
+    "keywords": [
+      "dolor",
+      "ruptura",
+      "verdad dificil",
+      "sanacion"
+    ],
+    "tags": [
+      "minor",
+      "swords"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "dolor",
+        "ruptura",
+        "verdad dificil",
+        "sanacion"
+      ],
+      "oneLine": "Tres de Espadas habla de dolor y de mirar la situacion con calma.",
+      "quick": "Tres de Espadas suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, Tres de Espadas invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, Tres de Espadas marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, Tres de Espadas aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "Tres de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "Tres de Espadas invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, Tres de Espadas pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, Tres de Espadas sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, Tres de Espadas recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "four_of_swords",
+    "ten_of_swords",
+    "eight_of_wands"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/three_of_swords.svg",
+    "full": "/cards/full/three_of_swords.svg",
+    "template": "/vision/rws-v1/templates/three_of_swords.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

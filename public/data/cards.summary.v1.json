@@ -1,0 +1,2030 @@
+[
+  {
+    "id": "ace_of_cups",
+    "slug": "ace-of-cups",
+    "nameEs": "As de Copas",
+    "nameEn": "Ace of Cups",
+    "shortName": "As de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "ace",
+    "thumbnail": "/cards/thumbnails/ace_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "As de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "As de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 1
+  },
+  {
+    "id": "ace_of_pentacles",
+    "slug": "ace-of-pentacles",
+    "nameEs": "As de Oros",
+    "nameEn": "Ace of Pentacles",
+    "shortName": "As de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "ace",
+    "thumbnail": "/cards/thumbnails/ace_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "As de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "As de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 2
+  },
+  {
+    "id": "ace_of_swords",
+    "slug": "ace-of-swords",
+    "nameEs": "As de Espadas",
+    "nameEn": "Ace of Swords",
+    "shortName": "As de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "ace",
+    "thumbnail": "/cards/thumbnails/ace_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "As de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "As de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 3
+  },
+  {
+    "id": "ace_of_wands",
+    "slug": "ace-of-wands",
+    "nameEs": "As de Bastos",
+    "nameEn": "Ace of Wands",
+    "shortName": "As de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "ace",
+    "thumbnail": "/cards/thumbnails/ace_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "As de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "As de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 4
+  },
+  {
+    "id": "death",
+    "slug": "la-muerte",
+    "nameEs": "La Muerte",
+    "nameEn": "Death",
+    "shortName": "La Muerte",
+    "arcana": "major",
+    "number": 13,
+    "roman": "XIII",
+    "thumbnail": "/cards/thumbnails/death.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Muerte habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Muerte invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 5
+  },
+  {
+    "id": "eight_of_cups",
+    "slug": "eight-of-cups",
+    "nameEs": "Ocho de Copas",
+    "nameEn": "Eight of Cups",
+    "shortName": "Ocho de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "eight",
+    "thumbnail": "/cards/thumbnails/eight_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Ocho de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Ocho de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 6
+  },
+  {
+    "id": "eight_of_pentacles",
+    "slug": "eight-of-pentacles",
+    "nameEs": "Ocho de Oros",
+    "nameEn": "Eight of Pentacles",
+    "shortName": "Ocho de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "eight",
+    "thumbnail": "/cards/thumbnails/eight_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Ocho de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Ocho de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 7
+  },
+  {
+    "id": "eight_of_swords",
+    "slug": "eight-of-swords",
+    "nameEs": "Ocho de Espadas",
+    "nameEn": "Eight of Swords",
+    "shortName": "Ocho de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "eight",
+    "thumbnail": "/cards/thumbnails/eight_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Ocho de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Ocho de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 8
+  },
+  {
+    "id": "eight_of_wands",
+    "slug": "eight-of-wands",
+    "nameEs": "Ocho de Bastos",
+    "nameEn": "Eight of Wands",
+    "shortName": "Ocho de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "eight",
+    "thumbnail": "/cards/thumbnails/eight_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Ocho de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Ocho de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 9
+  },
+  {
+    "id": "five_of_cups",
+    "slug": "five-of-cups",
+    "nameEs": "Cinco de Copas",
+    "nameEn": "Five of Cups",
+    "shortName": "Cinco de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "five",
+    "thumbnail": "/cards/thumbnails/five_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cinco de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Cinco de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 10
+  },
+  {
+    "id": "five_of_pentacles",
+    "slug": "five-of-pentacles",
+    "nameEs": "Cinco de Oros",
+    "nameEn": "Five of Pentacles",
+    "shortName": "Cinco de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "five",
+    "thumbnail": "/cards/thumbnails/five_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cinco de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Cinco de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 11
+  },
+  {
+    "id": "five_of_swords",
+    "slug": "five-of-swords",
+    "nameEs": "Cinco de Espadas",
+    "nameEn": "Five of Swords",
+    "shortName": "Cinco de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "five",
+    "thumbnail": "/cards/thumbnails/five_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cinco de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Cinco de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 12
+  },
+  {
+    "id": "five_of_wands",
+    "slug": "five-of-wands",
+    "nameEs": "Cinco de Bastos",
+    "nameEn": "Five of Wands",
+    "shortName": "Cinco de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "five",
+    "thumbnail": "/cards/thumbnails/five_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cinco de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Cinco de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 13
+  },
+  {
+    "id": "four_of_cups",
+    "slug": "four-of-cups",
+    "nameEs": "Cuatro de Copas",
+    "nameEn": "Four of Cups",
+    "shortName": "Cuatro de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "four",
+    "thumbnail": "/cards/thumbnails/four_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cuatro de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Cuatro de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 14
+  },
+  {
+    "id": "four_of_pentacles",
+    "slug": "four-of-pentacles",
+    "nameEs": "Cuatro de Oros",
+    "nameEn": "Four of Pentacles",
+    "shortName": "Cuatro de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "four",
+    "thumbnail": "/cards/thumbnails/four_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cuatro de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Cuatro de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 15
+  },
+  {
+    "id": "four_of_swords",
+    "slug": "four-of-swords",
+    "nameEs": "Cuatro de Espadas",
+    "nameEn": "Four of Swords",
+    "shortName": "Cuatro de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "four",
+    "thumbnail": "/cards/thumbnails/four_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cuatro de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Cuatro de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 16
+  },
+  {
+    "id": "four_of_wands",
+    "slug": "four-of-wands",
+    "nameEs": "Cuatro de Bastos",
+    "nameEn": "Four of Wands",
+    "shortName": "Cuatro de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "four",
+    "thumbnail": "/cards/thumbnails/four_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Cuatro de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Cuatro de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 17
+  },
+  {
+    "id": "judgement",
+    "slug": "el-juicio",
+    "nameEs": "El Juicio",
+    "nameEn": "Judgement",
+    "shortName": "El Juicio",
+    "arcana": "major",
+    "number": 20,
+    "roman": "XX",
+    "thumbnail": "/cards/thumbnails/judgement.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Juicio habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Juicio invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 18
+  },
+  {
+    "id": "justice",
+    "slug": "la-justicia",
+    "nameEs": "La Justicia",
+    "nameEn": "Justice",
+    "shortName": "La Justicia",
+    "arcana": "major",
+    "number": 11,
+    "roman": "XI",
+    "thumbnail": "/cards/thumbnails/justice.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Justicia habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Justicia invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 19
+  },
+  {
+    "id": "king_of_cups",
+    "slug": "king-of-cups",
+    "nameEs": "Rey de Copas",
+    "nameEn": "King of Cups",
+    "shortName": "Rey de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "king",
+    "thumbnail": "/cards/thumbnails/king_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Rey de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Rey de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 20
+  },
+  {
+    "id": "king_of_pentacles",
+    "slug": "king-of-pentacles",
+    "nameEs": "Rey de Oros",
+    "nameEn": "King of Pentacles",
+    "shortName": "Rey de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "king",
+    "thumbnail": "/cards/thumbnails/king_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Rey de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Rey de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 21
+  },
+  {
+    "id": "king_of_swords",
+    "slug": "king-of-swords",
+    "nameEs": "Rey de Espadas",
+    "nameEn": "King of Swords",
+    "shortName": "Rey de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "king",
+    "thumbnail": "/cards/thumbnails/king_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Rey de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Rey de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 22
+  },
+  {
+    "id": "king_of_wands",
+    "slug": "king-of-wands",
+    "nameEs": "Rey de Bastos",
+    "nameEn": "King of Wands",
+    "shortName": "Rey de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "king",
+    "thumbnail": "/cards/thumbnails/king_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Rey de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Rey de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 23
+  },
+  {
+    "id": "knight_of_cups",
+    "slug": "knight-of-cups",
+    "nameEs": "Caballero de Copas",
+    "nameEn": "Knight of Cups",
+    "shortName": "Caballero de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "knight",
+    "thumbnail": "/cards/thumbnails/knight_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Caballero de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Caballero de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 24
+  },
+  {
+    "id": "knight_of_pentacles",
+    "slug": "knight-of-pentacles",
+    "nameEs": "Caballero de Oros",
+    "nameEn": "Knight of Pentacles",
+    "shortName": "Caballero de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "knight",
+    "thumbnail": "/cards/thumbnails/knight_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Caballero de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Caballero de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 25
+  },
+  {
+    "id": "knight_of_swords",
+    "slug": "knight-of-swords",
+    "nameEs": "Caballero de Espadas",
+    "nameEn": "Knight of Swords",
+    "shortName": "Caballero de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "knight",
+    "thumbnail": "/cards/thumbnails/knight_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Caballero de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Caballero de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 26
+  },
+  {
+    "id": "knight_of_wands",
+    "slug": "knight-of-wands",
+    "nameEs": "Caballero de Bastos",
+    "nameEn": "Knight of Wands",
+    "shortName": "Caballero de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "knight",
+    "thumbnail": "/cards/thumbnails/knight_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Caballero de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Caballero de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 27
+  },
+  {
+    "id": "nine_of_cups",
+    "slug": "nine-of-cups",
+    "nameEs": "Nueve de Copas",
+    "nameEn": "Nine of Cups",
+    "shortName": "Nueve de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "nine",
+    "thumbnail": "/cards/thumbnails/nine_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Nueve de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Nueve de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 28
+  },
+  {
+    "id": "nine_of_pentacles",
+    "slug": "nine-of-pentacles",
+    "nameEs": "Nueve de Oros",
+    "nameEn": "Nine of Pentacles",
+    "shortName": "Nueve de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "nine",
+    "thumbnail": "/cards/thumbnails/nine_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Nueve de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Nueve de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 29
+  },
+  {
+    "id": "nine_of_swords",
+    "slug": "nine-of-swords",
+    "nameEs": "Nueve de Espadas",
+    "nameEn": "Nine of Swords",
+    "shortName": "Nueve de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "nine",
+    "thumbnail": "/cards/thumbnails/nine_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Nueve de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Nueve de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 30
+  },
+  {
+    "id": "nine_of_wands",
+    "slug": "nine-of-wands",
+    "nameEs": "Nueve de Bastos",
+    "nameEn": "Nine of Wands",
+    "shortName": "Nueve de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "nine",
+    "thumbnail": "/cards/thumbnails/nine_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Nueve de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Nueve de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 31
+  },
+  {
+    "id": "page_of_cups",
+    "slug": "page-of-cups",
+    "nameEs": "Sota de Copas",
+    "nameEn": "Page of Cups",
+    "shortName": "Sota de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "page",
+    "thumbnail": "/cards/thumbnails/page_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Sota de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Sota de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 32
+  },
+  {
+    "id": "page_of_pentacles",
+    "slug": "page-of-pentacles",
+    "nameEs": "Sota de Oros",
+    "nameEn": "Page of Pentacles",
+    "shortName": "Sota de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "page",
+    "thumbnail": "/cards/thumbnails/page_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Sota de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Sota de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 33
+  },
+  {
+    "id": "page_of_swords",
+    "slug": "page-of-swords",
+    "nameEs": "Sota de Espadas",
+    "nameEn": "Page of Swords",
+    "shortName": "Sota de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "page",
+    "thumbnail": "/cards/thumbnails/page_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Sota de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Sota de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 34
+  },
+  {
+    "id": "page_of_wands",
+    "slug": "page-of-wands",
+    "nameEs": "Sota de Bastos",
+    "nameEn": "Page of Wands",
+    "shortName": "Sota de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "page",
+    "thumbnail": "/cards/thumbnails/page_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Sota de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Sota de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 35
+  },
+  {
+    "id": "queen_of_cups",
+    "slug": "queen-of-cups",
+    "nameEs": "Reina de Copas",
+    "nameEn": "Queen of Cups",
+    "shortName": "Reina de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "queen",
+    "thumbnail": "/cards/thumbnails/queen_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Reina de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Reina de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 36
+  },
+  {
+    "id": "queen_of_pentacles",
+    "slug": "queen-of-pentacles",
+    "nameEs": "Reina de Oros",
+    "nameEn": "Queen of Pentacles",
+    "shortName": "Reina de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "queen",
+    "thumbnail": "/cards/thumbnails/queen_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Reina de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Reina de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 37
+  },
+  {
+    "id": "queen_of_swords",
+    "slug": "queen-of-swords",
+    "nameEs": "Reina de Espadas",
+    "nameEn": "Queen of Swords",
+    "shortName": "Reina de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "queen",
+    "thumbnail": "/cards/thumbnails/queen_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Reina de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Reina de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 38
+  },
+  {
+    "id": "queen_of_wands",
+    "slug": "queen-of-wands",
+    "nameEs": "Reina de Bastos",
+    "nameEn": "Queen of Wands",
+    "shortName": "Reina de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "queen",
+    "thumbnail": "/cards/thumbnails/queen_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Reina de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Reina de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 39
+  },
+  {
+    "id": "seven_of_cups",
+    "slug": "seven-of-cups",
+    "nameEs": "Siete de Copas",
+    "nameEn": "Seven of Cups",
+    "shortName": "Siete de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "seven",
+    "thumbnail": "/cards/thumbnails/seven_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Siete de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Siete de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 40
+  },
+  {
+    "id": "seven_of_pentacles",
+    "slug": "seven-of-pentacles",
+    "nameEs": "Siete de Oros",
+    "nameEn": "Seven of Pentacles",
+    "shortName": "Siete de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "seven",
+    "thumbnail": "/cards/thumbnails/seven_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Siete de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Siete de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 41
+  },
+  {
+    "id": "seven_of_swords",
+    "slug": "seven-of-swords",
+    "nameEs": "Siete de Espadas",
+    "nameEn": "Seven of Swords",
+    "shortName": "Siete de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "seven",
+    "thumbnail": "/cards/thumbnails/seven_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Siete de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Siete de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 42
+  },
+  {
+    "id": "seven_of_wands",
+    "slug": "seven-of-wands",
+    "nameEs": "Siete de Bastos",
+    "nameEn": "Seven of Wands",
+    "shortName": "Siete de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "seven",
+    "thumbnail": "/cards/thumbnails/seven_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Siete de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Siete de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 43
+  },
+  {
+    "id": "six_of_cups",
+    "slug": "six-of-cups",
+    "nameEs": "Seis de Copas",
+    "nameEn": "Six of Cups",
+    "shortName": "Seis de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "six",
+    "thumbnail": "/cards/thumbnails/six_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Seis de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Seis de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 44
+  },
+  {
+    "id": "six_of_pentacles",
+    "slug": "six-of-pentacles",
+    "nameEs": "Seis de Oros",
+    "nameEn": "Six of Pentacles",
+    "shortName": "Seis de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "six",
+    "thumbnail": "/cards/thumbnails/six_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Seis de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Seis de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 45
+  },
+  {
+    "id": "six_of_swords",
+    "slug": "six-of-swords",
+    "nameEs": "Seis de Espadas",
+    "nameEn": "Six of Swords",
+    "shortName": "Seis de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "six",
+    "thumbnail": "/cards/thumbnails/six_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Seis de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Seis de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 46
+  },
+  {
+    "id": "six_of_wands",
+    "slug": "six-of-wands",
+    "nameEs": "Seis de Bastos",
+    "nameEn": "Six of Wands",
+    "shortName": "Seis de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "six",
+    "thumbnail": "/cards/thumbnails/six_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Seis de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Seis de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 47
+  },
+  {
+    "id": "strength",
+    "slug": "la-fuerza",
+    "nameEs": "La Fuerza",
+    "nameEn": "Strength",
+    "shortName": "La Fuerza",
+    "arcana": "major",
+    "number": 8,
+    "roman": "VIII",
+    "thumbnail": "/cards/thumbnails/strength.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Fuerza habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Fuerza invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 48
+  },
+  {
+    "id": "temperance",
+    "slug": "la-templanza",
+    "nameEs": "La Templanza",
+    "nameEn": "Temperance",
+    "shortName": "La Templanza",
+    "arcana": "major",
+    "number": 14,
+    "roman": "XIV",
+    "thumbnail": "/cards/thumbnails/temperance.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Templanza habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Templanza invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 49
+  },
+  {
+    "id": "ten_of_cups",
+    "slug": "ten-of-cups",
+    "nameEs": "Diez de Copas",
+    "nameEn": "Ten of Cups",
+    "shortName": "Diez de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "ten",
+    "thumbnail": "/cards/thumbnails/ten_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Diez de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Diez de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 50
+  },
+  {
+    "id": "ten_of_pentacles",
+    "slug": "ten-of-pentacles",
+    "nameEs": "Diez de Oros",
+    "nameEn": "Ten of Pentacles",
+    "shortName": "Diez de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "ten",
+    "thumbnail": "/cards/thumbnails/ten_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Diez de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Diez de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 51
+  },
+  {
+    "id": "ten_of_swords",
+    "slug": "ten-of-swords",
+    "nameEs": "Diez de Espadas",
+    "nameEn": "Ten of Swords",
+    "shortName": "Diez de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "ten",
+    "thumbnail": "/cards/thumbnails/ten_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Diez de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Diez de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 52
+  },
+  {
+    "id": "ten_of_wands",
+    "slug": "ten-of-wands",
+    "nameEs": "Diez de Bastos",
+    "nameEn": "Ten of Wands",
+    "shortName": "Diez de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "ten",
+    "thumbnail": "/cards/thumbnails/ten_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Diez de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Diez de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 53
+  },
+  {
+    "id": "the_chariot",
+    "slug": "el-carro",
+    "nameEs": "El Carro",
+    "nameEn": "The Chariot",
+    "shortName": "El Carro",
+    "arcana": "major",
+    "number": 7,
+    "roman": "VII",
+    "thumbnail": "/cards/thumbnails/the_chariot.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Carro habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Carro invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 54
+  },
+  {
+    "id": "the_devil",
+    "slug": "el-diablo",
+    "nameEs": "El Diablo",
+    "nameEn": "The Devil",
+    "shortName": "El Diablo",
+    "arcana": "major",
+    "number": 15,
+    "roman": "XV",
+    "thumbnail": "/cards/thumbnails/the_devil.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Diablo habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Diablo invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 55
+  },
+  {
+    "id": "the_emperor",
+    "slug": "el-emperador",
+    "nameEs": "El Emperador",
+    "nameEn": "The Emperor",
+    "shortName": "El Emperador",
+    "arcana": "major",
+    "number": 4,
+    "roman": "IV",
+    "thumbnail": "/cards/thumbnails/the_emperor.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Emperador habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Emperador invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 56
+  },
+  {
+    "id": "the_empress",
+    "slug": "la-emperatriz",
+    "nameEs": "La Emperatriz",
+    "nameEn": "The Empress",
+    "shortName": "La Emperatriz",
+    "arcana": "major",
+    "number": 3,
+    "roman": "III",
+    "thumbnail": "/cards/thumbnails/the_empress.svg",
+    "keywordsUpright": [
+      "cuidado",
+      "abundancia",
+      "creacion",
+      "crecimiento"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Emperatriz habla de cuidado y de mirar la situacion con calma.",
+    "oneLineReversed": "La Emperatriz invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 57
+  },
+  {
+    "id": "the_fool",
+    "slug": "el-loco",
+    "nameEs": "El Loco",
+    "nameEn": "The Fool",
+    "shortName": "El Loco",
+    "arcana": "major",
+    "number": 0,
+    "roman": "0",
+    "thumbnail": "/cards/thumbnails/the_fool.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Loco habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Loco invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 58
+  },
+  {
+    "id": "the_hanged_man",
+    "slug": "el-colgado",
+    "nameEs": "El Colgado",
+    "nameEn": "The Hanged Man",
+    "shortName": "El Colgado",
+    "arcana": "major",
+    "number": 12,
+    "roman": "XII",
+    "thumbnail": "/cards/thumbnails/the_hanged_man.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Colgado habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Colgado invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 59
+  },
+  {
+    "id": "the_hermit",
+    "slug": "el-ermitano",
+    "nameEs": "El Ermitano",
+    "nameEn": "The Hermit",
+    "shortName": "El Ermitano",
+    "arcana": "major",
+    "number": 9,
+    "roman": "IX",
+    "thumbnail": "/cards/thumbnails/the_hermit.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Ermitano habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Ermitano invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 60
+  },
+  {
+    "id": "the_hierophant",
+    "slug": "el-hierofante",
+    "nameEs": "El Hierofante",
+    "nameEn": "The Hierophant",
+    "shortName": "El Hierofante",
+    "arcana": "major",
+    "number": 5,
+    "roman": "V",
+    "thumbnail": "/cards/thumbnails/the_hierophant.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Hierofante habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Hierofante invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 61
+  },
+  {
+    "id": "the_high_priestess",
+    "slug": "la-sacerdotisa",
+    "nameEs": "La Sacerdotisa",
+    "nameEn": "The High Priestess",
+    "shortName": "La Sacerdotisa",
+    "arcana": "major",
+    "number": 2,
+    "roman": "II",
+    "thumbnail": "/cards/thumbnails/the_high_priestess.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Sacerdotisa habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Sacerdotisa invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 62
+  },
+  {
+    "id": "the_lovers",
+    "slug": "los-enamorados",
+    "nameEs": "Los Enamorados",
+    "nameEn": "The Lovers",
+    "shortName": "Los Enamorados",
+    "arcana": "major",
+    "number": 6,
+    "roman": "VI",
+    "thumbnail": "/cards/thumbnails/the_lovers.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Los Enamorados habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "Los Enamorados invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 63
+  },
+  {
+    "id": "the_magician",
+    "slug": "el-mago",
+    "nameEs": "El Mago",
+    "nameEn": "The Magician",
+    "shortName": "El Mago",
+    "arcana": "major",
+    "number": 1,
+    "roman": "I",
+    "thumbnail": "/cards/thumbnails/the_magician.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Mago habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Mago invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 64
+  },
+  {
+    "id": "the_moon",
+    "slug": "la-luna",
+    "nameEs": "La Luna",
+    "nameEn": "The Moon",
+    "shortName": "La Luna",
+    "arcana": "major",
+    "number": 18,
+    "roman": "XVIII",
+    "thumbnail": "/cards/thumbnails/the_moon.svg",
+    "keywordsUpright": [
+      "confusion",
+      "intuicion",
+      "suenos",
+      "cosas ocultas"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Luna habla de confusion y de mirar la situacion con calma.",
+    "oneLineReversed": "La Luna invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 65
+  },
+  {
+    "id": "the_star",
+    "slug": "la-estrella",
+    "nameEs": "La Estrella",
+    "nameEn": "The Star",
+    "shortName": "La Estrella",
+    "arcana": "major",
+    "number": 17,
+    "roman": "XVII",
+    "thumbnail": "/cards/thumbnails/the_star.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Estrella habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Estrella invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 66
+  },
+  {
+    "id": "the_sun",
+    "slug": "el-sol",
+    "nameEs": "El Sol",
+    "nameEn": "The Sun",
+    "shortName": "El Sol",
+    "arcana": "major",
+    "number": 19,
+    "roman": "XIX",
+    "thumbnail": "/cards/thumbnails/the_sun.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Sol habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Sol invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 67
+  },
+  {
+    "id": "the_tower",
+    "slug": "la-torre",
+    "nameEs": "La Torre",
+    "nameEn": "The Tower",
+    "shortName": "La Torre",
+    "arcana": "major",
+    "number": 16,
+    "roman": "XVI",
+    "thumbnail": "/cards/thumbnails/the_tower.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Torre habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Torre invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 68
+  },
+  {
+    "id": "the_world",
+    "slug": "el-mundo",
+    "nameEs": "El Mundo",
+    "nameEn": "The World",
+    "shortName": "El Mundo",
+    "arcana": "major",
+    "number": 21,
+    "roman": "XXI",
+    "thumbnail": "/cards/thumbnails/the_world.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "El Mundo habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "El Mundo invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 69
+  },
+  {
+    "id": "three_of_cups",
+    "slug": "three-of-cups",
+    "nameEs": "Tres de Copas",
+    "nameEn": "Three of Cups",
+    "shortName": "Tres de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "three",
+    "thumbnail": "/cards/thumbnails/three_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Tres de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Tres de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 70
+  },
+  {
+    "id": "three_of_pentacles",
+    "slug": "three-of-pentacles",
+    "nameEs": "Tres de Oros",
+    "nameEn": "Three of Pentacles",
+    "shortName": "Tres de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "three",
+    "thumbnail": "/cards/thumbnails/three_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Tres de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Tres de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 71
+  },
+  {
+    "id": "three_of_swords",
+    "slug": "three-of-swords",
+    "nameEs": "Tres de Espadas",
+    "nameEn": "Three of Swords",
+    "shortName": "Tres de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "three",
+    "thumbnail": "/cards/thumbnails/three_of_swords.svg",
+    "keywordsUpright": [
+      "dolor",
+      "ruptura",
+      "verdad dificil",
+      "sanacion"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Tres de Espadas habla de dolor y de mirar la situacion con calma.",
+    "oneLineReversed": "Tres de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 72
+  },
+  {
+    "id": "three_of_wands",
+    "slug": "three-of-wands",
+    "nameEs": "Tres de Bastos",
+    "nameEn": "Three of Wands",
+    "shortName": "Tres de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "three",
+    "thumbnail": "/cards/thumbnails/three_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Tres de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Tres de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 73
+  },
+  {
+    "id": "two_of_cups",
+    "slug": "two-of-cups",
+    "nameEs": "Dos de Copas",
+    "nameEn": "Two of Cups",
+    "shortName": "Dos de Copas",
+    "arcana": "minor",
+    "suit": "cups",
+    "rank": "two",
+    "thumbnail": "/cards/thumbnails/two_of_cups.svg",
+    "keywordsUpright": [
+      "cups",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Dos de Copas habla de cups y de mirar la situacion con calma.",
+    "oneLineReversed": "Dos de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 74
+  },
+  {
+    "id": "two_of_pentacles",
+    "slug": "two-of-pentacles",
+    "nameEs": "Dos de Oros",
+    "nameEn": "Two of Pentacles",
+    "shortName": "Dos de Oros",
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "two",
+    "thumbnail": "/cards/thumbnails/two_of_pentacles.svg",
+    "keywordsUpright": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Dos de Oros habla de pentacles y de mirar la situacion con calma.",
+    "oneLineReversed": "Dos de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 75
+  },
+  {
+    "id": "two_of_swords",
+    "slug": "two-of-swords",
+    "nameEs": "Dos de Espadas",
+    "nameEn": "Two of Swords",
+    "shortName": "Dos de Espadas",
+    "arcana": "minor",
+    "suit": "swords",
+    "rank": "two",
+    "thumbnail": "/cards/thumbnails/two_of_swords.svg",
+    "keywordsUpright": [
+      "swords",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Dos de Espadas habla de swords y de mirar la situacion con calma.",
+    "oneLineReversed": "Dos de Espadas invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 76
+  },
+  {
+    "id": "two_of_wands",
+    "slug": "two-of-wands",
+    "nameEs": "Dos de Bastos",
+    "nameEn": "Two of Wands",
+    "shortName": "Dos de Bastos",
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "two",
+    "thumbnail": "/cards/thumbnails/two_of_wands.svg",
+    "keywordsUpright": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "Dos de Bastos habla de wands y de mirar la situacion con calma.",
+    "oneLineReversed": "Dos de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 77
+  },
+  {
+    "id": "wheel_of_fortune",
+    "slug": "la-rueda-de-la-fortuna",
+    "nameEs": "La Rueda de la Fortuna",
+    "nameEn": "Wheel of Fortune",
+    "shortName": "La Rueda de la Fortuna",
+    "arcana": "major",
+    "number": 10,
+    "roman": "X",
+    "thumbnail": "/cards/thumbnails/wheel_of_fortune.svg",
+    "keywordsUpright": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "keywordsReversed": [
+      "bloqueo",
+      "revision",
+      "claridad gradual",
+      "cambio interno"
+    ],
+    "oneLineUpright": "La Rueda de la Fortuna habla de cambio y de mirar la situacion con calma.",
+    "oneLineReversed": "La Rueda de la Fortuna invertida muestra bloqueo o una claridad que empieza a llegar.",
+    "popularityRank": 78
+  }
+]

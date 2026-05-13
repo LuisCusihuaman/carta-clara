@@ -1,0 +1,43 @@
+{
+  "id": "the_hanged_man",
+  "slug": "el-colgado",
+  "nameEs": "El Colgado",
+  "nameEn": "The Hanged Man",
+  "shortName": "El Colgado",
+  "arcana": "major",
+  "number": 12,
+  "roman": "XII",
+  "thumbnail": "/cards/thumbnails/the_hanged_man.svg",
+  "keywordsUpright": [
+    "cambio",
+    "intuicion",
+    "claridad",
+    "camino"
+  ],
+  "keywordsReversed": [
+    "bloqueo",
+    "revision",
+    "claridad gradual",
+    "cambio interno"
+  ],
+  "oneLineUpright": "El Colgado habla de cambio y de mirar la situacion con calma.",
+  "oneLineReversed": "El Colgado invertida muestra bloqueo o una claridad que empieza a llegar.",
+  "popularityRank": 59,
+  "quickUpright": "El Colgado suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+  "quickReversed": "El Colgado invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+  "loveUpright": "En amor, El Colgado invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+  "loveReversed": "En amor invertida, El Colgado pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+  "workUpright": "En trabajo, El Colgado marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+  "workReversed": "En trabajo invertida, El Colgado sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+  "moneyUpright": "En dinero, El Colgado aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+  "moneyReversed": "En dinero invertida, El Colgado recomienda evitar gastos impulsivos y ordenar prioridades.",
+  "adviceUpright": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+  "adviceReversed": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar.",
+  "yesNo": "Depende del contexto; conviene mirar las cartas cercanas.",
+  "relatedCards": [
+    "death",
+    "the_sun",
+    "ten_of_cups"
+  ],
+  "fullImage": "/cards/full/the_hanged_man.svg"
+}

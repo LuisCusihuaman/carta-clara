@@ -1,0 +1,43 @@
+{
+  "id": "the_hierophant",
+  "slug": "el-hierofante",
+  "nameEs": "El Hierofante",
+  "nameEn": "The Hierophant",
+  "shortName": "El Hierofante",
+  "arcana": "major",
+  "number": 5,
+  "roman": "V",
+  "thumbnail": "/cards/thumbnails/the_hierophant.svg",
+  "keywordsUpright": [
+    "cambio",
+    "intuicion",
+    "claridad",
+    "camino"
+  ],
+  "keywordsReversed": [
+    "bloqueo",
+    "revision",
+    "claridad gradual",
+    "cambio interno"
+  ],
+  "oneLineUpright": "El Hierofante habla de cambio y de mirar la situacion con calma.",
+  "oneLineReversed": "El Hierofante invertida muestra bloqueo o una claridad que empieza a llegar.",
+  "popularityRank": 61,
+  "quickUpright": "El Hierofante suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+  "quickReversed": "El Hierofante invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+  "loveUpright": "En amor, El Hierofante invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+  "loveReversed": "En amor invertida, El Hierofante pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+  "workUpright": "En trabajo, El Hierofante marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+  "workReversed": "En trabajo invertida, El Hierofante sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+  "moneyUpright": "En dinero, El Hierofante aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+  "moneyReversed": "En dinero invertida, El Hierofante recomienda evitar gastos impulsivos y ordenar prioridades.",
+  "adviceUpright": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+  "adviceReversed": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar.",
+  "yesNo": "Depende del contexto; conviene mirar las cartas cercanas.",
+  "relatedCards": [
+    "the_lovers",
+    "the_hanged_man",
+    "three_of_cups"
+  ],
+  "fullImage": "/cards/full/the_hierophant.svg"
+}

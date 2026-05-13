@@ -1,0 +1,80 @@
+{
+  "id": "four_of_wands",
+  "slug": "four-of-wands",
+  "name": {
+    "es": "Cuatro de Bastos",
+    "en": "Four of Wands",
+    "short": "Cuatro de Bastos"
+  },
+  "taxonomy": {
+    "arcana": "minor",
+    "suit": "wands",
+    "rank": "four"
+  },
+  "search": {
+    "aliases": [
+      "Cuatro de Bastos",
+      "Four of Wands",
+      "four-of-wands",
+      "four of wands",
+      "wands",
+      "four",
+      "four wands"
+    ],
+    "keywords": [
+      "wands",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "tags": [
+      "minor",
+      "wands"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "wands",
+        "situacion",
+        "decision",
+        "aprendizaje"
+      ],
+      "oneLine": "Cuatro de Bastos habla de wands y de mirar la situacion con calma.",
+      "quick": "Cuatro de Bastos suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, Cuatro de Bastos invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, Cuatro de Bastos marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, Cuatro de Bastos aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "Cuatro de Bastos invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "Cuatro de Bastos invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, Cuatro de Bastos pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, Cuatro de Bastos sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, Cuatro de Bastos recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "five_of_wands",
+    "page_of_wands",
+    "nine_of_pentacles"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/four_of_wands.svg",
+    "full": "/cards/full/four_of_wands.svg",
+    "template": "/vision/rws-v1/templates/four_of_wands.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

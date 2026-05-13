@@ -1,0 +1,80 @@
+{
+  "id": "the_devil",
+  "slug": "el-diablo",
+  "name": {
+    "es": "El Diablo",
+    "en": "The Devil",
+    "short": "El Diablo"
+  },
+  "taxonomy": {
+    "arcana": "major",
+    "number": 15,
+    "roman": "XV"
+  },
+  "search": {
+    "aliases": [
+      "El Diablo",
+      "The Devil",
+      "el-diablo",
+      "the devil",
+      "15",
+      "XV",
+      "arcano 15"
+    ],
+    "keywords": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "tags": [
+      "major",
+      "major"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "cambio",
+        "intuicion",
+        "claridad",
+        "camino"
+      ],
+      "oneLine": "El Diablo habla de cambio y de mirar la situacion con calma.",
+      "quick": "El Diablo suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, El Diablo invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, El Diablo marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, El Diablo aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "El Diablo invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "El Diablo invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, El Diablo pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, El Diablo sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, El Diablo recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "the_tower",
+    "ace_of_cups",
+    "queen_of_cups"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/the_devil.svg",
+    "full": "/cards/full/the_devil.svg",
+    "template": "/vision/rws-v1/templates/the_devil.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

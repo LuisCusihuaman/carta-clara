@@ -1,0 +1,80 @@
+{
+  "id": "four_of_pentacles",
+  "slug": "four-of-pentacles",
+  "name": {
+    "es": "Cuatro de Oros",
+    "en": "Four of Pentacles",
+    "short": "Cuatro de Oros"
+  },
+  "taxonomy": {
+    "arcana": "minor",
+    "suit": "pentacles",
+    "rank": "four"
+  },
+  "search": {
+    "aliases": [
+      "Cuatro de Oros",
+      "Four of Pentacles",
+      "four-of-pentacles",
+      "four of pentacles",
+      "pentacles",
+      "four",
+      "four pentacles"
+    ],
+    "keywords": [
+      "pentacles",
+      "situacion",
+      "decision",
+      "aprendizaje"
+    ],
+    "tags": [
+      "minor",
+      "pentacles"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "pentacles",
+        "situacion",
+        "decision",
+        "aprendizaje"
+      ],
+      "oneLine": "Cuatro de Oros habla de pentacles y de mirar la situacion con calma.",
+      "quick": "Cuatro de Oros suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, Cuatro de Oros invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, Cuatro de Oros marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, Cuatro de Oros aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "Cuatro de Oros invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "Cuatro de Oros invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, Cuatro de Oros pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, Cuatro de Oros sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, Cuatro de Oros recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "five_of_pentacles",
+    "page_of_pentacles",
+    "strength"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/four_of_pentacles.svg",
+    "full": "/cards/full/four_of_pentacles.svg",
+    "template": "/vision/rws-v1/templates/four_of_pentacles.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

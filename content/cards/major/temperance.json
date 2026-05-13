@@ -1,0 +1,80 @@
+{
+  "id": "temperance",
+  "slug": "la-templanza",
+  "name": {
+    "es": "La Templanza",
+    "en": "Temperance",
+    "short": "La Templanza"
+  },
+  "taxonomy": {
+    "arcana": "major",
+    "number": 14,
+    "roman": "XIV"
+  },
+  "search": {
+    "aliases": [
+      "La Templanza",
+      "Temperance",
+      "la-templanza",
+      "temperance",
+      "14",
+      "XIV",
+      "arcano 14"
+    ],
+    "keywords": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "tags": [
+      "major",
+      "major"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "cambio",
+        "intuicion",
+        "claridad",
+        "camino"
+      ],
+      "oneLine": "La Templanza habla de cambio y de mirar la situacion con calma.",
+      "quick": "La Templanza suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, La Templanza invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, La Templanza marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, La Templanza aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "La Templanza invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "La Templanza invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, La Templanza pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, La Templanza sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, La Templanza recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "the_devil",
+    "the_world",
+    "knight_of_cups"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/temperance.svg",
+    "full": "/cards/full/temperance.svg",
+    "template": "/vision/rws-v1/templates/temperance.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

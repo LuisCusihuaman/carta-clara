@@ -1,0 +1,80 @@
+{
+  "id": "the_emperor",
+  "slug": "el-emperador",
+  "name": {
+    "es": "El Emperador",
+    "en": "The Emperor",
+    "short": "El Emperador"
+  },
+  "taxonomy": {
+    "arcana": "major",
+    "number": 4,
+    "roman": "IV"
+  },
+  "search": {
+    "aliases": [
+      "El Emperador",
+      "The Emperor",
+      "el-emperador",
+      "the emperor",
+      "4",
+      "IV",
+      "arcano 4"
+    ],
+    "keywords": [
+      "cambio",
+      "intuicion",
+      "claridad",
+      "camino"
+    ],
+    "tags": [
+      "major",
+      "major"
+    ]
+  },
+  "meaning": {
+    "upright": {
+      "keywords": [
+        "cambio",
+        "intuicion",
+        "claridad",
+        "camino"
+      ],
+      "oneLine": "El Emperador habla de cambio y de mirar la situacion con calma.",
+      "quick": "El Emperador suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+      "love": "En amor, El Emperador invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+      "work": "En trabajo, El Emperador marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+      "money": "En dinero, El Emperador aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+      "advice": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+      "yesNo": "Depende del contexto; conviene mirar las cartas cercanas."
+    },
+    "reversed": {
+      "keywords": [
+        "bloqueo",
+        "revision",
+        "claridad gradual",
+        "cambio interno"
+      ],
+      "oneLine": "El Emperador invertida muestra bloqueo o una claridad que empieza a llegar.",
+      "quick": "El Emperador invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+      "love": "En amor invertida, El Emperador pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+      "work": "En trabajo invertida, El Emperador sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+      "money": "En dinero invertida, El Emperador recomienda evitar gastos impulsivos y ordenar prioridades.",
+      "advice": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar."
+    }
+  },
+  "related": [
+    "the_hierophant",
+    "justice",
+    "two_of_cups"
+  ],
+  "media": {
+    "thumbnail": "/cards/thumbnails/the_emperor.svg",
+    "full": "/cards/full/the_emperor.svg",
+    "template": "/vision/rws-v1/templates/the_emperor.webp"
+  },
+  "meta": {
+    "contentVersion": "cards-es-en-2026-05",
+    "updatedAt": "2026-05-13"
+  }
+}

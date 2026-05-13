@@ -1,0 +1,43 @@
+{
+  "id": "the_hermit",
+  "slug": "el-ermitano",
+  "nameEs": "El Ermitano",
+  "nameEn": "The Hermit",
+  "shortName": "El Ermitano",
+  "arcana": "major",
+  "number": 9,
+  "roman": "IX",
+  "thumbnail": "/cards/thumbnails/the_hermit.svg",
+  "keywordsUpright": [
+    "cambio",
+    "intuicion",
+    "claridad",
+    "camino"
+  ],
+  "keywordsReversed": [
+    "bloqueo",
+    "revision",
+    "claridad gradual",
+    "cambio interno"
+  ],
+  "oneLineUpright": "El Ermitano habla de cambio y de mirar la situacion con calma.",
+  "oneLineReversed": "El Ermitano invertida muestra bloqueo o una claridad que empieza a llegar.",
+  "popularityRank": 60,
+  "quickUpright": "El Ermitano suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+  "quickReversed": "El Ermitano invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+  "loveUpright": "En amor, El Ermitano invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+  "loveReversed": "En amor invertida, El Ermitano pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+  "workUpright": "En trabajo, El Ermitano marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+  "workReversed": "En trabajo invertida, El Ermitano sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+  "moneyUpright": "En dinero, El Ermitano aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+  "moneyReversed": "En dinero invertida, El Ermitano recomienda evitar gastos impulsivos y ordenar prioridades.",
+  "adviceUpright": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+  "adviceReversed": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar.",
+  "yesNo": "Depende del contexto; conviene mirar las cartas cercanas.",
+  "relatedCards": [
+    "wheel_of_fortune",
+    "the_tower",
+    "seven_of_cups"
+  ],
+  "fullImage": "/cards/full/the_hermit.svg"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "page_of_cups",
+  "slug": "page-of-cups",
+  "nameEs": "Sota de Copas",
+  "nameEn": "Page of Cups",
+  "shortName": "Sota de Copas",
+  "arcana": "minor",
+  "suit": "cups",
+  "rank": "page",
+  "thumbnail": "/cards/thumbnails/page_of_cups.svg",
+  "keywordsUpright": [
+    "cups",
+    "situacion",
+    "decision",
+    "aprendizaje"
+  ],
+  "keywordsReversed": [
+    "bloqueo",
+    "revision",
+    "claridad gradual",
+    "cambio interno"
+  ],
+  "oneLineUpright": "Sota de Copas habla de cups y de mirar la situacion con calma.",
+  "oneLineReversed": "Sota de Copas invertida muestra bloqueo o una claridad que empieza a llegar.",
+  "popularityRank": 32,
+  "quickUpright": "Sota de Copas suele aparecer cuando conviene observar lo que pasa, ordenar las sensaciones y elegir el siguiente paso sin apuro ni dramatismo.",
+  "quickReversed": "Sota de Copas invertida puede senalar resistencia, cansancio o una verdad que se acomoda de a poco. No obliga: pide revisar antes de reaccionar.",
+  "loveUpright": "En amor, Sota de Copas invita a hablar claro, cuidar los tiempos y mirar lo que se siente sin forzar una respuesta inmediata.",
+  "loveReversed": "En amor invertida, Sota de Copas pide no adivinar intenciones y abrir una conversacion simple si hace falta.",
+  "workUpright": "En trabajo, Sota de Copas marca una situacion que necesita foco, paciencia y una decision practica antes de avanzar.",
+  "workReversed": "En trabajo invertida, Sota de Copas sugiere corregir supuestos, bajar la velocidad y confirmar informacion.",
+  "moneyUpright": "En dinero, Sota de Copas aconseja revisar recursos, evitar impulsos y elegir una accion concreta y sostenible.",
+  "moneyReversed": "En dinero invertida, Sota de Copas recomienda evitar gastos impulsivos y ordenar prioridades.",
+  "adviceUpright": "Consejo: mira los hechos, escucha la intuicion y toma un paso pequeno pero claro.",
+  "adviceReversed": "Consejo: no fuerces claridad total; corrige una cosa por vez y vuelve a mirar.",
+  "yesNo": "Depende del contexto; conviene mirar las cartas cercanas.",
+  "relatedCards": [
+    "knight_of_cups",
+    "four_of_swords",
+    "two_of_wands"
+  ],
+  "fullImage": "/cards/full/page_of_cups.svg"
+}
