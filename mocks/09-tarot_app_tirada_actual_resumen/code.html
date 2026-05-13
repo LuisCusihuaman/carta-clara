@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Tirada Actual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#d4af37',
+              50: '#fbf8ea',
+              100: '#f5efcb',
+              200: '#ecdf9d',
+              300: '#e1c766',
+              400: '#d4af37',
+              500: '#bf9628',
+              600: '#a37620',
+              700: '#83571c',
+              800: '#6e471d',
+              900: '#5e3c1d',
+              950: '#36200f',
+            },
+            surface: {
+              DEFAULT: '#16130b',
+              dim: '#16130b',
+              bright: '#3d392f',
+              container: {
+                lowest: '#110e07',
+                low: '#1f1b13',
+                DEFAULT: '#242017',
+                high: '#2f2a20',
+                highest: '#3a3429'
+              }
+            },
+            danger: {
+              surface: '#2a1a1a',
+              text: '#e57373'
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            'xl': '0.75rem',
+            '2xl': '1rem',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="base-styles">
+    body {
+      background-color: theme('colors.surface.DEFAULT');
+      color: theme('colors.brand.100');
+      font-family: theme('fontFamily.sans');
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    h1, h2, h3, h4, h5, h6, .font-serif {
+      font-family: theme('fontFamily.serif');
+    }
+    
+    /* Hide scrollbar for clean app look */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="text-brand-100 antialiased overflow-hidden flex flex-col h-[100dvh]">
+<!-- BEGIN: Header Section -->
+<header class="flex-none pt-12 pb-4 px-6 flex items-center justify-between sticky top-0 z-10 bg-surface/90 backdrop-blur-md" data-purpose="main-header">
+<button aria-label="Go back" class="p-2 -ml-2 text-brand-300 hover:text-brand-100 transition-colors">
+<i class="w-6 h-6" data-lucide="chevron-left"></i>
+</button>
+<h1 class="text-xl font-serif font-semibold text-brand-100 tracking-wide">Tirada actual</h1>
+<button aria-label="Lock reading" class="p-2 -mr-2 text-brand-300 hover:text-brand-100 transition-colors">
+<i class="w-5 h-5 border border-brand-300/30 rounded-full p-0.5" data-lucide="lock"></i>
+</button>
+</header>
+<!-- END: Header Section -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-1 overflow-y-auto px-6 pb-24 space-y-6" data-purpose="scrollable-content">
+<!-- BEGIN: Cards Spread -->
+<section aria-label="Tarot Cards Spread" class="flex justify-between gap-3" data-purpose="card-spread">
+<!-- Card 1 -->
+<article class="flex-1 flex flex-col items-center group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden border border-surface-container-high/50 bg-surface-container shadow-lg mb-3">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-surface border border-surface-container-high rounded-full flex items-center justify-center z-10">
+<span class="text-[10px] font-semibold text-brand-300">1</span>
+</div>
+<!-- Placeholder for Card Image -->
+<img alt="La Luna Tarot Card" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpWrq_osZbqkBzamMJviWhDKQHUVGjCWEfJQ4SZXwAB1_wmYPaluagPy-5hnhCDJOw2N1Jijz2WBm-axtPqcsK2fCPJSaywz4jcWs4eiAFmP6RWfK8FiOrX-h_0EjqgrSXoa8sI9-Yfg3Bht1jLfXhY2u4jc-90i90lotc0X_IGYf5Fh1JUC2077Z0qG2jr67TTxUZqGtJMcHKSUa67YgO7LJciWBbwa9WB4wq4Ifqr1liKWJ8TDPoH87zpFpyuXl-XEP7s0DvujM"/>
+</div>
+<div class="text-center w-full px-1">
+<h3 class="font-serif text-sm font-semibold text-brand-100 leading-tight mb-0.5">La Luna</h3>
+<p class="text-[10px] text-brand-400/80 mb-2 font-serif uppercase tracking-wider">XVIII</p>
+<p class="text-[11px] leading-snug text-brand-100/70">Intuición, sueños y verdades que aún no ves.</p>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex-1 flex flex-col items-center group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden border border-surface-container-high/50 bg-surface-container shadow-lg mb-3">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-surface border border-surface-container-high rounded-full flex items-center justify-center z-10">
+<span class="text-[10px] font-semibold text-brand-300">2</span>
+</div>
+<!-- Placeholder for Card Image -->
+<img alt="Tres de Espadas Tarot Card" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbVLdIF1GKLdrnPk5O6DOI9w9d6Ka77AUdrba53fGbhGynGoe4uVkdsmp8sSluWheuZKI3C4juXAKh3Vys8Sh8ZzufFkAErXajfDGeLhBwFrxK0ZDL27lfmEAd1nAZ6ATFWT0btpr7b8tsuQGVKfOjdCJUCNdpOAMZIssRdgnwxtrZjsCuUVNymO693mv6bWYC11qf-QksKPrjtHZtx0VMa1prlw4_4SDK2s_CQ6XxMmYAy0vrZMzODnPZyhKU8mYd_ib_XbSVWdY"/>
+</div>
+<div class="text-center w-full px-1">
+<h3 class="font-serif text-sm font-semibold text-brand-100 leading-tight mb-0.5">Tres de Espadas</h3>
+<p class="text-[10px] text-brand-400/80 mb-2 font-serif uppercase tracking-wider">Espadas</p>
+<p class="text-[11px] leading-snug text-brand-100/70">Dolor, ruptura y necesidad de soltar.</p>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex-1 flex flex-col items-center group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-xl overflow-hidden border border-surface-container-high/50 bg-surface-container shadow-lg mb-3">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-surface border border-surface-container-high rounded-full flex items-center justify-center z-10">
+<span class="text-[10px] font-semibold text-brand-300">3</span>
+</div>
+<!-- Placeholder for Card Image -->
+<img alt="La Emperatriz Tarot Card" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2lsTp8VVqIXmNN-GjM1sFBepsDvrzifaNW16Of26RVXt7emTZFKLTHKRZiO_Zfq5HPJETjesYSR807iymovLaNjIFzHwhnS6p1freMn9QlWdyKqwnZsiHwgjR0lW52PlvcCJKbUAmw3n-isuvelIhrcg5l8BzXeg0GxAvqKwFpKEHk73iLOd4oEbwpMnvFbt4MBy38Pj1j4IrMF5O0SJ38UY0XWQpdbxasPPSs2h6gYcba0arBK51n5Ai394Qw9G0KoTml9REcg0"/>
+</div>
+<div class="text-center w-full px-1">
+<h3 class="font-serif text-sm font-semibold text-brand-100 leading-tight mb-0.5">La Emperatriz</h3>
+<p class="text-[10px] text-brand-400/80 mb-2 font-serif uppercase tracking-wider">III</p>
+<p class="text-[11px] leading-snug text-brand-100/70">Abundancia, creatividad y nutrición.</p>
+</div>
+</article>
+</section>
+<!-- END: Cards Spread -->
+<!-- BEGIN: Summary Section -->
+<section aria-label="Reading Summary" class="bg-surface-container/60 border border-surface-container-high/30 rounded-2xl p-5" data-purpose="reading-summary">
+<h2 class="font-serif text-lg text-brand-100 mb-3">Resumen simple</h2>
+<p class="text-sm text-brand-100/80 leading-relaxed font-light">
+        Estás transitando un proceso interno profundo que te lleva a soltar lo que duele. Al confiar en tu intuición, abrirás espacio para que algo nuevo y fértil florezca.
+      </p>
+</section>
+<!-- END: Summary Section -->
+<!-- BEGIN: Action Buttons -->
+<section aria-label="Reading Actions" class="flex gap-3" data-purpose="action-buttons">
+<button class="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-surface-container border border-surface-container-high/50 rounded-xl hover:bg-surface-container-high transition-colors active:scale-95">
+<i class="w-5 h-5 text-brand-300" data-lucide="bookmark"></i>
+<span class="text-xs text-brand-100/80 font-medium">Guardar tirada</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-surface-container border border-surface-container-high/50 rounded-xl hover:bg-surface-container-high transition-colors active:scale-95">
+<i class="w-5 h-5 text-brand-300" data-lucide="copy"></i>
+<span class="text-xs text-brand-100/80 font-medium">Copiar</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center gap-2 py-4 bg-danger-surface border border-red-900/30 rounded-xl hover:bg-red-950/40 transition-colors active:scale-95">
+<i class="w-5 h-5 text-danger-text" data-lucide="trash-2"></i>
+<span class="text-xs text-danger-text font-medium">Vaciar</span>
+</button>
+</section>
+<!-- END: Action Buttons -->
+</main>
+<!-- END: Main Content Area -->
+<!-- BEGIN: Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-surface/95 backdrop-blur-lg border-t border-surface-container-high pb-safe pt-2 px-6 flex justify-between items-center z-50" data-purpose="bottom-nav">
+<a class="flex flex-col items-center p-2 text-brand-100/50 hover:text-brand-300 transition-colors" href="#">
+<i class="w-6 h-6 mb-1" data-lucide="search"></i>
+<span class="text-[10px] font-medium">Buscar</span>
+</a>
+<a class="flex flex-col items-center p-2 text-brand-300 relative" href="#">
+<i class="w-6 h-6 mb-1" data-lucide="camera"></i>
+<span class="text-[10px] font-medium">Foto</span>
+<div class="absolute bottom-0 w-8 h-0.5 bg-brand-400 rounded-full"></div>
+</a>
+<a class="flex flex-col items-center p-2 text-brand-100/50 hover:text-brand-300 transition-colors" href="#">
+<i class="w-6 h-6 mb-1" data-lucide="gallery-vertical-end"></i>
+<span class="text-[10px] font-medium">Cartas</span>
+</a>
+<a class="flex flex-col items-center p-2 text-brand-100/50 hover:text-brand-300 transition-colors" href="#">
+<i class="w-6 h-6 mb-1" data-lucide="bookmark"></i>
+<span class="text-[10px] font-medium">Guardadas</span>
+</a>
+</nav>
+<!-- END: Bottom Navigation -->
+<!-- Icon Initialization -->
+<script data-purpose="icon-setup">
+    lucide.createIcons();
+  </script>
+</body></html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tarot App - Fast Result</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            app: {
+              bg: '#090712', // Deep near-black navy
+              card: '#120D23', // Darker semi-transparent card bg
+              accent: '#E2B05E', // Mystical gold accent
+              accentHover: '#F3C57A',
+              textPrimary: '#FFFFFF',
+              textSecondary: '#8B87A8', // Muted purple for secondary text
+              purpleAccent: '#A958E5', // Purple bullet points
+              borderBase: '#251E43', // Darker border
+            }
+          },
+          fontFamily: {
+            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif'],
+            serif: ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    /* High-fidelity iridescent glowing border */
+    .glow-border {
+      position: relative;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, rgba(169, 88, 229, 0.8) 0%, rgba(226, 176, 94, 0.4) 50%, rgba(169, 88, 229, 0.8) 100%);
+      padding: 1.5px; /* Thinner but clearly visible */
+      box-shadow: 0 0 30px rgba(169, 88, 229, 0.15);
+    }
+    .glow-border-inner {
+      background: #0D0A1A; /* Match card bg */
+      border-radius: calc(1.5rem - 1.5px);
+      height: 100%;
+    }
+    
+    /* Action buttons glassmorphism */
+    .glass-action-btn {
+      background: rgba(25, 20, 45, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(169, 88, 229, 0.3);
+      transition: all 0.2s ease;
+    }
+    .glass-action-btn:hover {
+      background: rgba(35, 28, 65, 0.8);
+      border-color: rgba(226, 176, 94, 0.5);
+    }
+    
+    /* Custom scrollbar hiding for horizontal scroll areas */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-app-bg text-app-textPrimary font-sans antialiased min-h-screen flex flex-col">
+<!-- BEGIN: Top Navigation & Status Bar Area -->
+<header class="pt-12 pb-4 px-6 sticky top-0 bg-app-bg/95 backdrop-blur z-10 flex flex-col gap-6" data-purpose="header">
+<!-- Top Row: Back, Logo, Profile -->
+<div class="flex items-center justify-between" data-purpose="top-bar">
+<!-- Back Button -->
+<button aria-label="Go back" class="text-app-textSecondary hover:text-white p-2 -ml-2 transition-colors">
+<svg class="w-6 h-6" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+</button>
+<!-- Center Logo (Sun) -->
+<div class="text-app-accent flex justify-center items-center">
+<svg class="w-7 h-7" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="4"></circle>
+<path d="M12 2v2"></path>
+<path d="M12 20v2"></path>
+<path d="m4.93 4.93 1.41 1.41"></path>
+<path d="m17.66 17.66 1.41 1.41"></path>
+<path d="M2 12h2"></path>
+<path d="M20 12h2"></path>
+<path d="m6.34 17.66-1.41 1.41"></path>
+<path d="m19.07 4.93-1.41 1.41"></path>
+</svg>
+</div>
+<!-- Profile Button -->
+<button aria-label="Profile" class="bg-app-bg text-app-textSecondary hover:text-white rounded-full w-9 h-9 flex items-center justify-center border border-app-borderBase transition-colors">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="relative flex items-center" data-purpose="search-bar">
+<div class="absolute left-4 text-app-textSecondary flex items-center">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+<circle cx="11" cy="11" r="8"></circle>
+<line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+</svg>
+</div>
+<!-- Search Input with active gold border -->
+<input class="w-full bg-[#1A1531] text-white placeholder-app-textSecondary rounded-2xl py-3.5 pl-12 pr-24 border border-app-purpleAccent/30 focus:outline-none focus:border-app-accent focus:ring-1 focus:ring-app-accent transition-colors text-[15px]" placeholder="Search..." type="text" value="luna"/>
+<!-- Right actions in search bar -->
+<div class="absolute right-3 flex items-center gap-2">
+<!-- Clear input button -->
+<button aria-label="Clear search" class="bg-[#2A2345] text-app-textSecondary rounded-full w-5 h-5 flex items-center justify-center text-xs hover:bg-[#352D5A] transition-colors">
+<svg fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+</button>
+<!-- Sparkle icon -->
+<button aria-label="Sparkle feature" class="text-app-accent p-1 hover:text-app-accentHover transition-colors">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+<path d="M5 3v4"></path>
+<path d="M19 17v4"></path>
+<path d="M3 5h4"></path>
+<path d="M17 19h4"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Category Filters -->
+<div class="flex gap-3 overflow-x-auto hide-scrollbar" data-purpose="category-filters">
+<!-- Active Chip -->
+<button class="whitespace-nowrap px-6 py-2 rounded-2xl border border-app-accent text-app-accent bg-transparent text-sm font-medium">Todos</button>
+<!-- Inactive Chips -->
+<button class="whitespace-nowrap px-6 py-2 rounded-2xl border border-app-borderBase text-app-textSecondary bg-[#1A1531]/50 text-sm hover:bg-[#1E1736] transition-colors">Mayores</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-2xl border border-app-borderBase text-app-textSecondary bg-[#1A1531]/50 text-sm hover:bg-[#1E1736] transition-colors">Copas</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-2xl border border-app-borderBase text-app-textSecondary bg-[#1A1531]/50 text-sm hover:bg-[#1E1736] transition-colors">Espadas</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-2xl border border-app-borderBase text-app-textSecondary bg-[#1A1531]/50 text-sm hover:bg-[#1E1736] transition-colors">Bastos</button>
+</div>
+</header>
+<!-- END: Top Navigation & Status Bar Area -->
+<!-- BEGIN: Main Content -->
+<main class="flex-1 px-6 pb-12 space-y-8" data-purpose="main-content">
+<!-- Best Result Section -->
+<section data-purpose="best-result">
+<h2 class="text-white text-[15px] font-medium mb-4">Mejor resultado</h2>
+<!-- Main Card with glowing border -->
+<div class="glow-border">
+<div class="glow-border-inner p-6 flex flex-col gap-8">
+<!-- Card Content Header (Image + Title) -->
+<div class="flex gap-6">
+<!-- Card Image -->
+<div class="w-1/3 shrink-0 rounded-xl overflow-hidden border border-app-accent/20 shadow-[0_4px_20px_rgba(226,176,94,0.15)] bg-black">
+<!-- Using a placeholder aspect ratio container. Real image would go here. -->
+<div class="aspect-[2/3] w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkq8tvwo9IStNWW41iUWd_Zd9eB9_-xVwIfcuCmsfVf6MqmzagAB_mDLNcAbuJ7JEUPJiZ_rGByIO4Wh0sK96eHrHF0aQdlOPdVB3_zy4W8Ln2Al-FlG6tWrYIFPPflIzl-JnyoSWHbt0blunB2dXgSAvfEAUW_UGeO_uZHoKgJdmOCR0UvNUVqyitSqf17fouq9soGtG3bysXbf7SBq3o_yRADBAlkKZCUjyDt-CE-9bZZdaVxnLMI7Ywm2nZ50eaBMzAup9-QPg');"></div>
+</div>
+<!-- Card Info -->
+<div class="flex-1 pt-1">
+<h3 class="font-serif text-[32px] text-white mb-2 tracking-wide font-normal">La Luna</h3>
+<p class="text-app-textSecondary text-[13px] mb-4 uppercase tracking-wider">XVIII • Arcano Mayor</p>
+<p class="text-[14px] text-app-textSecondary leading-[1.6]">
+                Confusión • intuición •<br/>cosas ocultas
+              </p>
+</div>
+</div>
+<!-- Meanings Section -->
+<div class="space-y-6">
+<!-- Upright Meaning -->
+<div class="flex items-start gap-4">
+<div class="w-2.5 h-2.5 rounded-full bg-app-purpleAccent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(169,88,229,0.8)] border border-[#C58CFC]/50"></div>
+<div>
+<h4 class="text-white text-[15px] font-medium mb-1.5">Derecha</h4>
+<p class="text-app-textSecondary text-[14px] leading-[1.6]">
+                  Intuición aguda, señales sutiles. Lo oculto sale a la luz. Sueños reveladores.
+                </p>
+</div>
+</div>
+<!-- Reversed Meaning -->
+<div class="flex items-start gap-4">
+<div class="w-2.5 h-2.5 rounded-full bg-app-purpleAccent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(169,88,229,0.8)] border border-[#C58CFC]/50"></div>
+<div>
+<h4 class="text-white text-[15px] font-medium mb-1.5">Invertida</h4>
+<p class="text-app-textSecondary text-[14px] leading-[1.6]">
+                  Ilusiones, miedos, engaños. Falta de claridad. Confusión emocional.
+                </p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-4 mt-2">
+<!-- Ver más -->
+<button class="flex-1 glass-action-btn rounded-[20px] py-4 flex flex-col items-center justify-center gap-2.5">
+<svg class="text-app-textSecondary w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+</svg>
+<span class="text-app-textSecondary text-[13px] font-medium">Ver más</span>
+</button>
+<!-- Copiar -->
+<button class="flex-1 glass-action-btn rounded-[20px] py-4 flex flex-col items-center justify-center gap-2.5">
+<svg class="text-app-textSecondary w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect>
+<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+</svg>
+<span class="text-app-textSecondary text-[13px] font-medium">Copiar</span>
+</button>
+<!-- Guardar -->
+<button class="flex-1 glass-action-btn rounded-[20px] py-4 flex flex-col items-center justify-center gap-2.5">
+<svg class="text-app-textSecondary w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+</svg>
+<span class="text-app-textSecondary text-[13px] font-medium">Guardar</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- More Results Section -->
+<section class="mt-10" data-purpose="more-results">
+<h2 class="text-white text-[15px] font-medium mb-4">Más resultados</h2>
+<div class="space-y-4">
+<!-- Result Item 1 -->
+<a class="block bg-[#110C24]/80 rounded-[20px] p-4 border border-app-purpleAccent/20 flex items-center gap-4 hover:border-app-accent/40 transition-all duration-300" href="#">
+<div class="w-11 h-[60px] rounded-lg overflow-hidden shrink-0 border border-app-accent/20 bg-black">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhhq_AJNZOIsNCHPebp_aG0ocIoAZjKufeXPjH2AntQ4jMxqytAslNs8Gtw2-g-nktPFBkTMWmKfUY6VcUzTZyN9mOasqsRoIHLZGAx4vXC0SuwiyJJealz1MYIuKK2MGbEDiOvEexleoNoIrOjiq2MToX7Yu6cBSuh_JNw3PJ1nTPgGGZzgkXSt7xILK4_vpRy-xKC3DIqG5FJSWgULTG-MTAavJtXwhj-KVOE-dNtX-_QzHUqKaDxUTTxIiMJ7ouSvC-M1GS0C8');"></div>
+</div>
+<div class="flex-1">
+<h4 class="text-white text-[15px] font-medium mb-1">La Luna (invertida)</h4>
+<p class="text-app-textSecondary text-[13px]">XVIII • Arcano Mayor</p>
+</div>
+<svg class="text-app-textSecondary w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</a>
+<!-- Result Item 2 -->
+<a class="block bg-[#110C24]/80 rounded-[20px] p-4 border border-app-purpleAccent/20 flex items-center gap-4 hover:border-app-accent/40 transition-all duration-300" href="#">
+<div class="w-11 h-[60px] rounded-lg overflow-hidden shrink-0 border border-app-accent/20 bg-black">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9p9x_g7eCZIXDsOMI6nnZTRTuEinZEOH1Z5leNbK-EzL7Ue2jULBjAx0C0n6KSyKfqfN6__xkqysUx2gd3ElfE6AUn2rvXFwXxwQm0_XS3uhqC5csSXKLHMvI5JXi_j8JTtEpjRuYXaZyFm1T8z0Ahi_wr2dwUp9l0a415ZNl4yQiY-IcyuTeTdUAJ6369Vd7fr_QsNkmb-NCHtVYUBlvu3MnImMvw9SFMREyhWcAuf2nVsWxsgY6HvSw2YSGyim4fzOPqoVcOXo');"></div>
+</div>
+<div class="flex-1">
+<h4 class="text-white text-[15px] font-medium mb-1">La Luna en amor</h4>
+<p class="text-app-textSecondary text-[13px]">Interpretación temática</p>
+</div>
+<svg class="text-app-textSecondary w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</a>
+</div>
+</section>
+</main>
+<!-- END: Main Content -->
+</body></html>

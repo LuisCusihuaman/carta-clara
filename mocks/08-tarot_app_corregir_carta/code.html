@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Corregir carta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#97b0ff",
+                        "inverse-surface": "#eae1d4",
+                        "primary": "#f2ca50",
+                        "on-primary-fixed": "#241a00",
+                        "primary-container": "#d4af37",
+                        "on-secondary-fixed": "#2c0051",
+                        "surface-tint": "#e9c349",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "outline": "#99907c",
+                        "background": "#16130b",
+                        "surface-variant": "#38342b",
+                        "on-tertiary-fixed": "#00174b",
+                        "primary-fixed-dim": "#e9c349",
+                        "secondary-fixed-dim": "#dcb8ff",
+                        "secondary-fixed": "#efdbff",
+                        "on-tertiary-container": "#254188",
+                        "on-secondary": "#480081",
+                        "on-surface": "#eae1d4",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "surface-dim": "#16130b",
+                        "on-background": "#eae1d4",
+                        "tertiary-fixed": "#dbe1ff",
+                        "surface-container-lowest": "#110e07",
+                        "surface": "#16130b",
+                        "on-secondary-container": "#dcb7ff",
+                        "tertiary": "#bfcdff",
+                        "inverse-on-surface": "#343027",
+                        "outline-variant": "#4d4635",
+                        "surface-container-low": "#1f1b13",
+                        "on-secondary-fixed-variant": "#6700b5",
+                        "surface-container": "#231f17",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#554300",
+                        "on-error": "#690005",
+                        "secondary": "#dcb8ff",
+                        "on-tertiary": "#082b72",
+                        "inverse-primary": "#735c00",
+                        "surface-container-high": "#2d2a21",
+                        "primary-fixed": "#ffe088",
+                        "surface-container-highest": "#38342b",
+                        "on-surface-variant": "#d0c5af",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-primary": "#3c2f00",
+                        "surface-bright": "#3d392f",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#7701d0",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "40px",
+                        "container-margin": "20px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Playfair Display"],
+                        "caption": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(35, 31, 23, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(242, 202, 80, 0.15);
+        }
+        .cosmic-glow {
+            box-shadow: 0 0 15px -5px rgba(119, 1, 208, 0.8);
+        }
+        .iridescent-btn {
+            background: linear-gradient(135deg, #7701d0 0%, #d4af37 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center">
+<div class="w-full max-w-md min-h-screen flex flex-col relative overflow-hidden pb-32">
+<!-- Background Layer -->
+<div class="absolute inset-0 z-0 bg-[#05040A]"></div>
+<!-- Header -->
+<header class="relative z-10 w-full flex flex-col pt-12 px-container-margin">
+<div class="flex items-center justify-between w-full mb-6">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-primary">
+<span class="material-symbols-outlined font-light">arrow_back</span>
+</button>
+<div class="text-primary flex flex-col items-center justify-center">
+<span class="material-symbols-outlined font-light text-[32px]">light_mode</span>
+</div>
+<div class="w-10 h-10"></div> <!-- Spacer -->
+</div>
+<div class="text-center mb-8">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Corregir carta</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">No estoy segura de esta carta</p>
+</div>
+</header>
+<!-- Main Content -->
+<main class="relative z-10 w-full px-container-margin flex-grow flex flex-col gap-6">
+<!-- Card Preview -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden glass-panel">
+<img alt="Tarot Card Preview" class="w-full h-full object-cover opacity-80 mix-blend-luminosity" data-alt="A close-up photograph of a vintage tarot card, specifically 'The Moon', resting on an ornate, dark wooden table. The lighting is dim and mysterious, highlighting the intricate, celestial illustrations on the card. The overall aesthetic is mystical, with deep shadows and warm, subtle golden accents reflecting off the card's surface. The mood is introspective and ethereal, fitting a premium, cosmic spiritual theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxH5CjLaY6nnaye_8Pb_3eFw5QMbs1XPeX2npcmzNrqTKC4_7Mi3EOlUfpNLtLqCWHvmqdytY1j5o9UOw5LXyaW8qQyoAPzsBQ7bOu7V1-9REieRNNawtlSpVLP33leRBn36fEEAKgFiemvJlSDMV9LyqUuFSLuvS2cO9nDxuWELRs1appQIesEcRL4i59sC3HcJzNjBMYjnP_TaJ7Yhmek0kCLhUYkBsi1vKlfhlSUGL74AedAFfD2w3Bj-U-88A5JQ0LcBHDz8E"/>
+<button class="absolute bottom-4 right-4 glass-panel rounded-full px-4 py-2 flex items-center gap-2 text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined font-light text-sm">crop</span>
+<span>Recortar</span>
+</button>
+</div>
+<div class="text-center">
+<h2 class="font-body-md text-body-md text-on-surface-variant">Elegí la carta que mejor coincida</h2>
+</div>
+<!-- Selection List -->
+<div class="flex flex-col gap-4">
+<!-- Item 1 (Selected) -->
+<div class="glass-panel rounded-xl p-4 flex items-center gap-4 cursor-pointer relative overflow-hidden border border-primary/50">
+<div class="absolute inset-0 bg-primary/5 z-0"></div>
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center z-10">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+</div>
+<div class="w-12 h-16 rounded border border-outline-variant/30 overflow-hidden z-10">
+<img alt="La Sacerdotisa" class="w-full h-full object-cover" data-alt="A small, stylized illustration representing the High Priestess tarot card. The artwork features a mystical figure in flowing robes, set against a backdrop of deep violets and cosmic golds. The style is reminiscent of high-end editorial illustrations, with a slightly ethereal, translucent quality. The colors are rich and saturated, contributing to a deeply introspective and authoritative mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVElfx9Vs7nRgN9VTgnS5tGbeN3x8ldvUUaVYKrmLYVlR74EekVJYRVAuv06qKHXKVOXpyugsH4FsEwcc6UtJTUDpiUSR_weXHlmQFsuE8_1rLa9PiewWCmuWSBp72-JXB1KTt9wHxHwueKigtXY0zhaQccY0ykj_l189kKkNQD2zgTbh7mM2h5RfIIwcxN_ansawebYNENSPT2PpXZN7--he0Y49GlR7Lvvuw8RxKnNXRmEwoq-lY6izZ7etQhYSwRiwdz8ucjYI"/>
+</div>
+<div class="flex-grow z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 text-[20px] leading-tight">La Sacerdotisa</h3>
+<p class="font-label-md text-label-md text-secondary mb-1">54% <span class="font-normal text-on-surface-variant">de confianza</span></p>
+<p class="font-caption text-caption text-on-surface-variant">Intuición • Sabiduría • Misterio</p>
+</div>
+<span class="material-symbols-outlined font-light text-on-surface-variant z-10">chevron_right</span>
+</div>
+<!-- Item 2 -->
+<div class="glass-panel rounded-xl p-4 flex items-center gap-4 cursor-pointer">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center"></div>
+<div class="w-12 h-16 rounded border border-outline-variant/30 overflow-hidden">
+<img alt="La Luna" class="w-full h-full object-cover" data-alt="A small, stylized illustration representing The Moon tarot card. The artwork depicts a glowing moon and two wolves beneath it, set against a dark, starry night sky. The aesthetic is heavily influenced by the deep cosmic theme, utilizing a palette of near-black voids and electric violet accents. The overall feel is mysterious and ethereal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3F2BC-9_eWO1lZnA9e5V94e1c88f7_Cc9i0-aushSIKyASbEqQkK-DHW4b1v5jbvz8CgERpUuqqcafTvbJGSErMYKpalgMpziC5BE5ueueb2O1-wUpEPAZAp2VdS9MgsRuNIkhqYJgpIjnmsW0KoVPG_q3POzC4yhKZ7FaI6AQ-zcCeTGBbNCfVSXp3Rhcltq7B3449kDaud6I4Gdxh7CKhUWkWrHU1VeEvBhxLTPI0iG0t720xL1p_MhyuQUj7AuxJcwh6ZYZrc"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 text-[20px] leading-tight">La Luna</h3>
+<p class="font-label-md text-label-md text-secondary mb-1">36% <span class="font-normal text-on-surface-variant">de confianza</span></p>
+<p class="font-caption text-caption text-on-surface-variant">Ilusiones • Sueños • Intuición</p>
+</div>
+<span class="material-symbols-outlined font-light text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Item 3 -->
+<div class="glass-panel rounded-xl p-4 flex items-center gap-4 cursor-pointer">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center"></div>
+<div class="w-12 h-16 rounded border border-outline-variant/30 overflow-hidden">
+<img alt="Siete de Copas" class="w-full h-full object-cover" data-alt="A small, stylized illustration representing the Seven of Cups tarot card. The artwork shows seven glowing cups floating in a misty, ambiguous void, each containing strange visions. The color scheme is dominated by dark, desaturated tones with sharp, mystical gold highlights. The style aligns with a high-end, tech-forward spiritual aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5L8vTYBoPQngDDgpdesGkrlYz_tjXp3SFWHZAXS3oj062kQvFDVd8R_frI8noo9Uz1pV5c0VcyNdU3jUx4tj2bRbBHq0-aul5IQhBZa0cRg9Q9fp-xHA6gF7JDeD0tx5epSDU-_1g65byOsX9ugtWWI7_gEEELViFnsUxoDlgxhung2p7xMAnrnyvGow_Y6VXCHofjyYnqPMUgrhD-eTrJeoNlriwuIH-DxPEIfCyayXwlGiyFHLXwMJc3zULyt8t9MHf_0foiDo"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 text-[20px] leading-tight">Siete de Copas</h3>
+<p class="font-label-md text-label-md text-secondary mb-1">24% <span class="font-normal text-on-surface-variant">de confianza</span></p>
+<p class="font-caption text-caption text-on-surface-variant">Opciones • Ilusiones • Confusión</p>
+</div>
+<span class="material-symbols-outlined font-light text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</main>
+<!-- Footer Action -->
+<div class="fixed bottom-0 left-0 w-full p-container-margin z-50 bg-gradient-to-t from-background via-background/90 to-transparent">
+<button class="w-full max-w-md mx-auto block iridescent-btn text-on-primary rounded-xl py-4 font-label-md text-label-md cosmic-glow relative overflow-hidden group">
+<span class="relative z-10 text-white">Confirmar selección</span>
+</button>
+</div>
+</div>
+</body></html>

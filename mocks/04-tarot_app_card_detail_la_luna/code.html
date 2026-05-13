@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Card Detail - La Luna</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#7701d0",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "background": "#16130b",
+                        "primary": "#f2ca50",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-highest": "#38342b",
+                        "on-tertiary-fixed": "#00174b",
+                        "surface": "#16130b",
+                        "outline-variant": "#4d4635",
+                        "on-background": "#eae1d4",
+                        "secondary": "#dcb8ff",
+                        "tertiary": "#bfcdff",
+                        "surface-tint": "#e9c349",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#554300",
+                        "on-surface-variant": "#d0c5af",
+                        "primary-container": "#d4af37",
+                        "primary-fixed": "#ffe088",
+                        "tertiary-container": "#97b0ff",
+                        "on-error": "#690005",
+                        "surface-bright": "#3d392f",
+                        "surface-container": "#231f17",
+                        "error-container": "#93000a",
+                        "outline": "#99907c",
+                        "on-surface": "#eae1d4",
+                        "surface-dim": "#16130b",
+                        "primary-fixed-dim": "#e9c349",
+                        "secondary-fixed-dim": "#dcb8ff",
+                        "surface-container-low": "#1f1b13",
+                        "inverse-on-surface": "#343027",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "on-secondary": "#480081",
+                        "on-tertiary-container": "#254188",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary-fixed-variant": "#6700b5",
+                        "inverse-surface": "#eae1d4",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-secondary-container": "#dcb7ff",
+                        "on-tertiary": "#082b72",
+                        "on-primary": "#3c2f00",
+                        "surface-container-high": "#2d2a21",
+                        "surface-container-lowest": "#110e07",
+                        "surface-variant": "#38342b",
+                        "secondary-fixed": "#efdbff",
+                        "inverse-primary": "#735c00",
+                        "on-secondary-fixed": "#2c0051"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "20px",
+                        "gutter": "12px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Playfair Display"],
+                        "caption": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #05040A; /* Deep Cosmic background */
+            color: #eae1d4;
+        }
+        
+        /* Glassmorphism utility classes based on Style Guidance */
+        .glass-layer-1 {
+            background-color: rgba(35, 31, 23, 0.4); /* surface-container with 40% opacity */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(242, 202, 80, 0.15); /* Mystic Gold inner stroke 15% */
+        }
+        
+        .glass-layer-2-glow {
+            box-shadow: 0 0 15px -5px rgba(220, 184, 255, 0.6); /* Electric Violet glow */
+        }
+
+        .glass-list-item {
+            border-bottom: 0.5px solid rgba(242, 202, 80, 0.1);
+        }
+        .glass-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #dcb8ff, #f2ca50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center pb-[100px]">
+<!-- TopAppBar Container -->
+<header class="w-full max-w-[600px] sticky top-0 z-40 bg-[#05040A]/80 backdrop-blur-md">
+<!-- Predicted Shared Component: TopAppBar -->
+<div class="flex justify-between items-center px-container-margin py-md w-full bg-transparent">
+<!-- Leading Action -->
+<button aria-label="Go back" class="text-primary hover:opacity-70 transition-opacity press:scale-95 duration-150 p-2 rounded-full glass-layer-1">
+<span class="material-symbols-outlined font-light" style="font-variation-settings: 'wght' 300;">arrow_back</span>
+</button>
+<!-- Headline / Brand Logo -->
+<div class="text-primary font-headline-lg flex justify-center flex-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">light_mode</span>
+</div>
+<!-- Trailing Action -->
+<button aria-label="Bookmark" class="text-primary hover:opacity-70 transition-opacity press:scale-95 duration-150 p-2 rounded-full glass-layer-1">
+<span class="material-symbols-outlined font-light" style="font-variation-settings: 'wght' 300;">bookmark</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[600px] px-container-margin flex flex-col items-center gap-xl mt-md">
+<!-- Hero Section: Card Image -->
+<section class="w-full flex justify-center">
+<div class="relative rounded-xl overflow-hidden glass-layer-2-glow shadow-lg w-[260px] h-[400px]">
+<img alt="La Luna Tarot Card" class="w-full h-full object-cover border border-primary/20 rounded-xl" data-alt="A highly detailed, ethereal digital painting of a tarot card representing 'The Moon'. The central imagery features a large, luminous, stylized moon face in a deep twilight sky, shining over a mystical landscape. Below, two dogs howl upwards, flanking a small winding path that leads towards distant towers. A crustacean emerges from a dark pool of water in the foreground. The illustration style mimics classic tarot art with a modern, high-end, premium finish. The color palette is dominated by deep cosmic violets, rich indigos, and vibrant mystic golds. Soft, magical glowing effects surround the celestial bodies. The overall mood is mysterious, spiritual, and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoXfSBr365_01iPrfhRQJij4gPeeTPfww2bI1BYonF__LC1dNB9VwN7O3r7b6-fVnfMO3PKO4bvQJ3D1esRhtx9u4saVJfAGc1d0hujS0-mgPwa9tuPtiw4ybHWHk12SAQXrV8JVCkJ3BEPC-ywoWhLjxv411Z9G-1iyeQbQJDDqsidMqIYc_VlIqc1_MUWGVdn7CgqkM9RK6X5IynDUKAsdPuwltNt3cY5J-bhegxUdsWVE2tEUG-tEL6eh8eVdLNt3B0c26HsSc"/>
+</div>
+</section>
+<!-- Identity Section -->
+<section class="w-full text-center flex flex-col gap-sm">
+<h1 class="font-headline-lg text-on-surface tracking-wide mt-md">La Luna</h1>
+<h2 class="font-body-lg text-on-surface-variant">The Moon • Arcano Mayor XVIII</h2>
+<p class="font-body-md gradient-text mt-sm">Confusión • intuición • cosas ocultas</p>
+</section>
+<!-- Interaction: Segmented Control -->
+<section class="w-full">
+<div class="glass-layer-1 rounded-full p-1 flex items-center relative w-full h-[52px] bg-surface-container/60"><!-- Active Indicator Background -->
+<div class="absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] bg-gradient-to-r from-secondary-container to-secondary/80 rounded-full transition-transform duration-300 shadow-lg shadow-secondary-container/20"></div>
+<button aria-pressed="true" class="relative flex-1 flex justify-center items-center h-full z-10 font-label-md text-white">
+    Derecha
+</button>
+<button aria-pressed="false" class="relative flex-1 flex justify-center items-center h-full z-10 font-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+    Invertida
+</button></div>
+</section>
+<!-- Content: Vertical List of Details -->
+<section class="w-full glass-layer-1 rounded-xl overflow-hidden flex flex-col mb-xl">
+<!-- Item 1: Resumen -->
+<div class="glass-list-item flex gap-md p-md items-start hover:bg-surface-bright/20 transition-colors cursor-pointer group">
+<div class="text-primary mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">error</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<h3 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Resumen</h3>
+<p class="font-body-md text-on-surface-variant">Intuición aguda, señales sutiles. Lo oculto sale a la luz. Sueños reveladores.</p>
+</div>
+<div class="text-on-surface-variant mt-1 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Item 2: En 10 segundos -->
+<div class="glass-list-item flex gap-md p-md items-start hover:bg-surface-bright/20 transition-colors cursor-pointer group">
+<div class="text-error mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">timer</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<h3 class="font-label-md text-on-surface group-hover:text-primary transition-colors">En 10 segundos</h3>
+<p class="font-body-md text-on-surface-variant"><span class="font-bold">Prepárate:</span> algo importante se revela.</p>
+</div>
+<div class="text-on-surface-variant mt-1 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Item 3: Amor -->
+<div class="glass-list-item flex gap-md p-md items-start hover:bg-surface-bright/20 transition-colors cursor-pointer group">
+<div class="text-[#ff6b6b] mt-1"> <!-- Heart color variant -->
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">favorite</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<h3 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Amor</h3>
+<p class="font-body-md text-on-surface-variant">Conexión intuitiva. Secretos o dudas.</p>
+</div>
+<div class="text-on-surface-variant mt-1 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Item 4: Trabajo -->
+<div class="glass-list-item flex gap-md p-md items-start hover:bg-surface-bright/20 transition-colors cursor-pointer group">
+<div class="text-primary mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">work</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<h3 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Trabajo</h3>
+<p class="font-body-md text-on-surface-variant">Información oculta. Analiza antes de decidir.</p>
+</div>
+<div class="text-on-surface-variant mt-1 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Item 5: Consejo -->
+<div class="glass-list-item flex gap-md p-md items-start hover:bg-surface-bright/20 transition-colors cursor-pointer group">
+<div class="text-primary mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">info</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<h3 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Consejo</h3>
+<p class="font-body-md text-on-surface-variant">Confía en tu intuición y observa los signos.</p>
+</div>
+<div class="text-on-surface-variant mt-1 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Item 6: Parecidas -->
+<div class="glass-list-item flex gap-md p-md items-start hover:bg-surface-bright/20 transition-colors cursor-pointer group">
+<div class="text-primary mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">auto_awesome</span>
+</div>
+<div class="flex-1 flex flex-col gap-xs">
+<h3 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Parecidas</h3>
+<p class="font-body-md text-on-surface-variant">La Estrella, La Sacerdotisa, El Diablo</p>
+</div>
+<div class="text-on-surface-variant mt-1 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Container -->
+<!-- Predicted Shared Component: BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-container-margin py-lg bg-surface-container/40 backdrop-blur-xl border-t border-outline-variant/15 shadow-[0_-8px_30px_rgb(119,1,208,0.1)] rounded-t-xl max-w-[600px] mx-auto right-0">
+<!-- Tab 1: Ver más -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 px-6 py-2 hover:text-primary transition-colors press:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 300;">auto_stories</span>
+<span class="font-label-md text-label-md">Ver más</span>
+</button>
+<!-- Tab 2: Copiar -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant/60 px-6 py-2 hover:text-primary transition-colors press:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 300;">content_copy</span>
+<span class="font-label-md text-label-md">Copiar</span>
+</button>
+<!-- Tab 3: Guardar (Active State based on user viewing details to save) -->
+<button class="flex flex-col items-center justify-center bg-surface-bright/20 border border-primary/30 text-primary rounded-xl px-6 py-2 hover:text-primary transition-colors press:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 300;">bookmark</span>
+<span class="font-label-md text-label-md">Guardar</span>
+</button>
+</nav>
+</body></html>

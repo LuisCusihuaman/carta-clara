@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Todas las cartas - Arcana</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#eae1d4",
+                      "on-primary-fixed-variant": "#574500",
+                      "tertiary-fixed": "#dbe1ff",
+                      "primary": "#f2ca50",
+                      "surface-variant": "#38342b",
+                      "on-secondary": "#480081",
+                      "on-tertiary-fixed": "#00174b",
+                      "surface-tint": "#e9c349",
+                      "secondary-container": "#7701d0",
+                      "on-primary-container": "#554300",
+                      "tertiary": "#bfcdff",
+                      "inverse-surface": "#eae1d4",
+                      "outline-variant": "#4d4635",
+                      "on-secondary-fixed": "#2c0051",
+                      "on-secondary-container": "#dcb7ff",
+                      "primary-fixed": "#ffe088",
+                      "inverse-primary": "#735c00",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#b4c5ff",
+                      "secondary-fixed": "#efdbff",
+                      "surface-bright": "#3d392f",
+                      "surface": "#16130b",
+                      "surface-dim": "#16130b",
+                      "surface-container-highest": "#38342b",
+                      "on-surface": "#eae1d4",
+                      "inverse-on-surface": "#343027",
+                      "on-tertiary-container": "#254188",
+                      "primary-fixed-dim": "#e9c349",
+                      "primary-container": "#d4af37",
+                      "on-surface-variant": "#d0c5af",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#97b0ff",
+                      "on-tertiary": "#082b72",
+                      "on-primary-fixed": "#241a00",
+                      "on-tertiary-fixed-variant": "#27438a",
+                      "outline": "#99907c",
+                      "surface-container-lowest": "#110e07",
+                      "surface-container": "#231f17",
+                      "on-error": "#690005",
+                      "background": "#16130b",
+                      "error": "#ffb4ab",
+                      "surface-container-low": "#1f1b13",
+                      "surface-container-high": "#2d2a21",
+                      "secondary": "#dcb8ff",
+                      "on-secondary-fixed-variant": "#6700b5",
+                      "secondary-fixed-dim": "#dcb8ff",
+                      "on-primary": "#3c2f00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "40px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "container-margin": "20px",
+                      "lg": "24px",
+                      "gutter": "12px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "caption": [
+                              "Be Vietnam Pro"
+                      ],
+                      "body-lg": [
+                              "Be Vietnam Pro"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Be Vietnam Pro"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #05040A; /* Deep Cosmic Background from style guidance override */
+        }
+        .glass-panel {
+            background: rgba(22, 19, 11, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.15); /* Mystic Gold Inner Stroke */
+        }
+        .glow-effect {
+            box-shadow: 0 0 15px -5px rgba(220, 184, 255, 0.6); /* Electric Violet Glow */
+        }
+        /* Custom scrollbar for horizontal chip list */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .text-gradient-primary {
+            background: linear-gradient(to right, #dcb8ff, #f2ca50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-[90px]">
+<!-- Top App Bar - Desktop (Hidden on Mobile) -->
+<header class="hidden md:flex justify-between items-center w-full px-container-margin py-sm max-w-7xl mx-auto bg-surface/40 backdrop-blur-xl border-b border-primary/10 shadow-[0_0_20px_-10px_rgba(220,184,255,0.4)] docked full-width top-0 sticky z-40">
+<button class="text-primary hover:bg-primary/10 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">menu</span>
+</button>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Arcana</h1>
+<button class="text-primary hover:bg-primary/10 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">account_circle</span>
+</button>
+</header>
+<!-- Mobile Header -->
+<div class="md:hidden flex justify-between items-center px-container-margin py-md mt-sm">
+<div class="w-8"></div> <!-- Spacer for centering -->
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'wght' 300;">wb_sunny</span>
+<button class="text-primary hover:bg-primary/10 transition-colors p-2 rounded-full flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">person</span>
+</button>
+</div>
+<main class="px-container-margin max-w-7xl mx-auto mt-md">
+<!-- Page Title -->
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Todas las cartas</h2>
+<!-- Search Bar -->
+<div class="relative mb-lg">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary/70" style="font-variation-settings: 'wght' 300;">search</span>
+</div>
+<input class="w-full glass-panel rounded-full py-md pl-[48px] pr-[48px] text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all" placeholder="Buscar carta, número o keyword..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary/70" style="font-variation-settings: 'wght' 300;">auto_awesome</span>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex overflow-x-auto hide-scrollbar gap-sm pb-sm mb-lg -mx-container-margin px-container-margin">
+<button class="whitespace-nowrap px-md py-sm rounded-full border border-primary text-primary font-label-md text-label-md bg-primary/10 transition-colors">Todos</button>
+<button class="whitespace-nowrap px-md py-sm rounded-full border border-outline-variant/30 text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors glass-panel">Mayores</button>
+<button class="whitespace-nowrap px-md py-sm rounded-full border border-outline-variant/30 text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors glass-panel">Copas</button>
+<button class="whitespace-nowrap px-md py-sm rounded-full border border-outline-variant/30 text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors glass-panel">Espadas</button>
+<button class="whitespace-nowrap px-md py-sm rounded-full border border-outline-variant/30 text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors glass-panel">Bastos</button>
+<button class="whitespace-nowrap px-md py-sm rounded-full border border-outline-variant/30 text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors glass-panel">Oros</button>
+</div>
+<!-- Grid of Cards -->
+<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-sm gap-y-lg">
+<!-- Card 1: La Luna -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Moon" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Moon tarot card featuring a glowing moon, two dogs howling, and a dark celestial sky. Deep indigo and metallic gold color palette. Mystical, ethereal mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3oFogjg637JQc4k-JasgojKRNwsNbakAon0ewlfYa0vvb_JKJx5BXRN_X7VWWne-RXuHGDs_VAzltKFjbef_gkm4XoEYLoIed_fm2im9Jo0PRZKZFFCcIvloaAn256ZrsdMUAGMoKpj0LXrS0Xtb0jeBXUVU4euckwfI1eZFtnPn5PTLCEteVf1bogWqxcBTypJ_X0IZggypCYWFY1PtPV55Q6K_JojcKizJYwyN-LUtMKCsE3ZxDVwLIDh2njnwP8A7_cxPn_oc"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">La Luna</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">XVIII</p>
+</div>
+<!-- Card 2: El Sol -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Sun" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Sun tarot card featuring a radiant golden sun with a face, shining over a stylized landscape. Warm gold, amber, and deep black color palette. Joyful, powerful, radiant mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTGc4wCSGjZzL2P7nWrgVFRYbGuPDoRXXveJ5W7UwS5xIHypLBOibM6dUNNSVVB8eLCv2unoHOdpDYuzk1L3gSHO7-OiDV50T6ke8tcLnZd-0VXqqPMTGsQqaT3D5oqy0_9wcP37fGq0guwDic0knNG3yDyAqWFiRNSpWyzSYa-uIZWtvZrXdHjhrwHvqKkG67BM0FTTPNT1LIDS_kmZ0IxJg864ENBoRKrlcMkKxbn3oIkk7GXp3dDisTH4yw6zWjTcoWOKz5XOE"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">El Sol</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">XIX</p>
+</div>
+<!-- Card 3: La Emperatriz -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Empress" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Empress tarot card showing a regal woman seated in a lush forest landscape. Earth tones, deep greens, and subtle gold accents. Nurturing, abundant, earthy mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdou_XTP3sMgQViTcsCny3yUBRIX3vnT7jKsqZppS7ufKwFYQJSsXZ6Rm_JzTrKqfXqWi6iABLW5Go1w3AXYrDWWtHWVj9RqGoNjk_hm3SGG5jM2ZUBDI31a9b1iMpkkQYYpmRwjPQpsLqX5J3lmbPybujPvFu1r7EybAf5nYgDWHsGIJZiFXYZmF5zfj3nJGuS7DbtvZ2yiLfUq9K2A8GH3To6vpulaiA9hODt-zpVqnf3Ci4sE2YC-eFCPVrleDv_pzXdAoMcVo"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">La Emperatriz</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">III</p>
+</div>
+<!-- Card 4: El Mago -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Magician" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Magician tarot card depicting a figure standing with one arm pointing up and one down, surrounded by esoteric symbols. Dark background with vibrant red and gold details. Mysterious, focused, energetic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN8lMVLOE6F-CcOT80785iDtkilcTmgM6UobeD1GwrOLvMajX_2VNPIgytoI7hU_wEa4qsOPafGSVQBW7DFhhv1ZLSjDMl2MOVYXzwRyYcdjAlSMpdJnREJIkC11SKBNqavzkuolA1yCiWpM3nYsxHYTKcjAbGLtTADzhv4dbPlTuMH9vpHQzkfTFgU0GmPLGhrYHq1ISbj4OrewjWa9TjxH1vyag3nKyICgFzKlwbu7TqnTSWRUGWUGdLndNxoUJsVfnypyg0P3A"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">El Mago</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">I</p>
+</div>
+<!-- Card 5: La Sacerdotisa -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The High Priestess" class="w-full h-full object-cover" data-alt="A vintage style illustration of the High Priestess tarot card featuring a veiled woman seated between two pillars, holding a scroll. Cool blues, silvers, and deep violet color palette. Intuitive, secret, calm mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGAjKbvwt9JE8Hw0ty4wkt2dqFj_Nk7GyqKofjp47V3CHTUKvTVcI22SPe-Q3_i2IbWNEsqAdH23578XoZ6uUkPLgIP-Fs_Dx5aPLPS87R2fXOn5NJaUKtzI-EuLFEIej9LaoC5-JHpbeJ_Rf0P0wo13uICtlcWXkSDWsu4Pse_L-ggQkl4GCwB3g2NVcT3JUDdK2N0AVb4gYkgHTV6Z3J1kqFjPzFfNg3rek4Fn22HgQjzA0gD5KnMCmFiJA6t74YGXo1x0m5CHM"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">La Sacerdotisa</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">II</p>
+</div>
+<!-- Card 6: El Emperador -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Emperor" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Emperor tarot card showing a stern, bearded king sitting on a stone throne adorned with ram heads. Strong reds, grays, and dark gold accents. Authoritative, stable, structured mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW46PCNHw3jhs___BNiyX63si6DQYbpG81EPzttlixwmuGsGa9bvCWTGaCGRtld5VOb61zrBOYqDZXcnkznPiOODQ9asnI_l9_6jI-DU5wsk_-7twwNWBXQbQxzDNxdaaDnj1SuhPEGreNb6MZ75uNUrgB2yM2j0OfI0gJxejw0RVjIjHXIe4aV_lFoVOv1GyHIqMxhCR9N-AJ2_xuFZl2cKjidhA-UItFWvbva5338Zw5z4n3Ccmp_NllqCM8wSRVAT7rxaZd5Qc"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">El Emperador</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">IV</p>
+</div>
+<!-- Card 7: El Hierofante -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Hierophant" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Hierophant tarot card depicting a religious figure seated between columns, offering a blessing. Rich crimson, gold, and dark wood tones. Traditional, spiritual, solemn mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJbPYXyA2X9ICrDaG3X_LQVFngjYqm1JezMu_VoLrqicD16xVXmf2eHK4f7GN3BQerD340Wx0jUeLqwRoWvs5GR3aKu5DLQWYqXfVLXpDA_4tT3Qz_bwA1RYy2VXn7DhAQ507gTzZiNVk3JoLUTHZMscqlzTnbFRXUn7keLJVDb9GVLvUc9ZRsF9STv1L-9JQnZbpMBbfne0PK6Xfi57LKnp850-2XOs3UbkEZACo5N2hv4tW0BpfODjRqkSjB-MHeu9eZWNaNmWI"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">El Hierofante</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">V</p>
+</div>
+<!-- Card 8: Los Enamorados -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Lovers" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Lovers tarot card showing a naked man and woman beneath an angelic figure with outstretched wings. Soft pinks, warm golds, and deep cosmic blacks. Romantic, harmonious, unified mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGH4qATYggZBiX3OHSF5A3bUPOEWzeVEhb23Ly33ST7YAGZ6ex2mrCvrE5Iq3zhfWEvHCeHZ0BdgM3ivqJVkyjfsMDlJWLvXUXXQXlNtZtFUelbeWnVV2NDFXqgxTkQrm1_eY31jhW9cEa9zwz6u5tfNj_4palNSjCIV7PX3hPjgP6m7FPQk0xC7JqwKGTb8GBgF3Q7gKfHxmoLhT98Vxw0HBeNF6VIh_RH2djPtipcNumGJDJxdOh-CRsZueH4CciUjhKNaZQ5WE"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">Los Enamorados</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">VI</p>
+</div>
+<!-- Card 9: El Carro -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden border border-primary/20 mb-xs transition-transform duration-300 group-hover:scale-105 group-hover:glow-effect relative">
+<img alt="Tarot Card The Chariot" class="w-full h-full object-cover" data-alt="A vintage style illustration of the Chariot tarot card featuring a warrior in a starry canopy chariot pulled by two sphinxes. Silver, deep night sky blue, and stark white contrast. Triumphant, driven, victorious mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUVMbINJRiF7NtIq30kBPTM5WRpBv5Fal8ro5PN0pInmJU8zRiDaEsWtn474hw4KOrx0P28San8qPK2YJESYjUTtPYKdTpOAgVz_M0iVJWrDK9oSAdvPasS6fNq-xc5CQzQf9YmDGtXXBplw3FGl4JIPUYc55eyvG8wcqxKbQaUeXapZwWpYz8ClMh6aqAxi69neadANto6U46SClOoouNKkLLXkWan_nTA5NOHIMe_-r8m9gXGhKixYO-UJeTtVgxAcfhWKLpcig"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#05040A]/80"></div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface text-center leading-tight">El Carro</h3>
+<p class="font-caption text-caption text-on-surface-variant/70 text-center">VII</p>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar - Mobile (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-md pb-safe bg-surface/60 backdrop-blur-2xl border-t border-primary/15 shadow-[0_-8px_24px_-12px_rgba(220,184,255,0.5)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'wght' 300;">search</span>
+<span class="font-label-md text-[10px] uppercase tracking-wider">Buscar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'wght' 300;">photo_camera</span>
+<span class="font-label-md text-[10px] uppercase tracking-wider">Foto</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary scale-110 transition-all bg-secondary/10 px-4 py-2 rounded-lg glow-effect" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 400, 'FILL' 1;">playing_cards</span>
+<span class="font-label-md text-[10px] uppercase tracking-wider">Cartas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'wght' 300;">bookmark</span>
+<span class="font-label-md text-[10px] uppercase tracking-wider">Guardadas</span>
+</a>
+</nav>
+</body></html>
