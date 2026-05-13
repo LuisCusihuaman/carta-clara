@@ -22,8 +22,10 @@ test("photo fallback states are available", async ({ page }) => {
   await expect(page.getByTestId("camera-guide-frame")).toBeVisible();
   await expect(page.getByRole("link", { name: "Buscar manualmente" })).toBeVisible();
   await expect(page.getByText("Matching local MVP")).toBeVisible();
-  await page.getByRole("button", { name: "La Luna 82%" }).click();
-  await expect(page.getByText("Detecte the moon")).toBeVisible();
+  await page.getByLabel("Subir foto").setInputFiles("public/cards/thumbnails/the_moon.svg");
+  await expect(page.getByTestId("photo-best-match")).toContainText("La Luna");
+  await page.getByRole("button", { name: "Agregar a tirada" }).click();
+  await expect(page.getByText("Coincidencia fuerte")).toBeVisible();
 });
 
 test("card grid exposes premium gallery landmark", async ({ page }) => {

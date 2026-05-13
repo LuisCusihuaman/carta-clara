@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import { clsx } from "clsx";
 
 type ClassNameProp = {
@@ -95,6 +95,6 @@ export function ConfidenceBadge({ value }: { value: number }) {
   return <span className="rounded-full border border-[color:var(--color-border)] bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">{percent}% confianza</span>;
 }
 
-export function PremiumRow({ children, className }: ClassNameProp & { children: ReactNode }) {
-  return <div className={clsx("rounded-2xl border border-[color:var(--color-border)] bg-surface/70 p-3 shadow-[0_10px_28px_rgb(0_0_0/20%)]", className)}>{children}</div>;
+export function PremiumRow({ children, className, ...props }: ClassNameProp & { children: ReactNode } & HTMLAttributes<HTMLDivElement>) {
+  return <div className={clsx("rounded-2xl border border-[color:var(--color-border)] bg-surface/70 p-3 shadow-[0_10px_28px_rgb(0_0_0/20%)]", className)} {...props}>{children}</div>;
 }
