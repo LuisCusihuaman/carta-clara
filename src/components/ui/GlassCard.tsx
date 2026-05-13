@@ -8,7 +8,7 @@ type GlassCardProps = {
 
 export function GlassCard({ children, className }: GlassCardProps) {
   return (
-    <section className={clsx("rounded-3xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-glass)] p-4 shadow-glow backdrop-blur", className)}>
+    <section className={clsx("mystic-panel rounded-[2rem] p-4", className)}>
       {children}
     </section>
   );

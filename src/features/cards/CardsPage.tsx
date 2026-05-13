@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlassCard } from "@components/ui/GlassCard";
+import { Chip, SectionHeader, TarotFrame } from "@components/ui/MysticPrimitives";
 import type { CardSummary } from "@/data/cardTypes";
 import { saveFavorite } from "@features/saved/favoritesStore";
 
@@ -32,27 +33,25 @@ export function CardsPage() {
   const visibleCards = useMemo(() => cards.filter((card) => filter === "all" || card.arcana === filter || card.suit === filter), [cards, filter]);
 
   return (
-    <div className="space-y-4 px-5 py-5">
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Cartas</p>
-        <h2 className="mt-2 font-display text-3xl">Las 78 cartas</h2>
-      </div>
-      <div className="flex gap-2 overflow-x-auto pb-1">
+    <div className="space-y-5 px-5 py-5">
+      <SectionHeader eyebrow="Cartas" title="Las 78 cartas" description="Galeria compacta para reconocer arcanos, palos y nombres rapidamente." />
+      <div className="scrollbar-none flex gap-2 overflow-x-auto pb-1" aria-label="Filtros de cartas">
         {filters.map((item) => (
-          <button key={item.value} className={`min-h-11 shrink-0 rounded-full border border-[color:var(--color-border)] px-4 text-sm ${filter === item.value ? "bg-elevated text-gold" : "text-muted"}`} type="button" onClick={() => setFilter(item.value)}>
+          <Chip key={item.value} active={filter === item.value} onClick={() => setFilter(item.value)}>
             {item.label}
-          </button>
+          </Chip>
         ))}
       </div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3" data-testid="mock-card-grid">
         {visibleCards.map((card) => (
-          <Link key={card.id} className="rounded-2xl border border-[color:var(--color-border)] bg-surface p-2 text-center" to={`/carta/${card.id}`} onContextMenu={(event) => { event.preventDefault(); void saveFavorite(card.id); }}>
-            <img className="mx-auto aspect-[2/3] w-full rounded-xl object-cover" src={card.thumbnail} alt="" loading="lazy" />
-            <span className="mt-2 block truncate text-xs text-ink">{card.shortName ?? card.nameEs}</span>
+          <Link key={card.id} className="group rounded-[1.35rem] border border-[color:var(--color-border)] bg-surface/58 p-1.5 text-center shadow-[0_10px_30px_rgb(0_0_0/20%)] transition hover:border-[color:var(--color-border-strong)]" to={`/carta/${card.id}`} onContextMenu={(event) => { event.preventDefault(); void saveFavorite(card.id); }}>
+            <TarotFrame className="w-full transition group-hover:scale-[1.015]" src={card.thumbnail} />
+            <span className="mt-2 block truncate px-1 pb-1 text-[11px] font-medium text-ink">{card.shortName ?? card.nameEs}</span>
+            <span className="sr-only">Abrir {card.nameEs}</span>
           </Link>
         ))}
       </div>
-      {cards.length === 0 && <GlassCard><p className="text-muted">Cargando grilla...</p></GlassCard>}
+      {cards.length === 0 && <GlassCard><p className="text-sm text-muted">Cargando grilla premium...</p></GlassCard>}
     </div>
   );
 }
