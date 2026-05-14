@@ -11,7 +11,7 @@ import {
 import './App.css'
 import { cardSprite, cardSpriteColumns, cardSpriteImage } from './data/cardSprite'
 import { cardsById, detectedDemoIds, tarotCards, type TarotCard } from './data/cards'
-import { filterCards, filters, getPopularCards, searchCards, type CardFilter } from './lib/search'
+import { filterCards, filters, searchCards, type CardFilter } from './lib/search'
 import {
   readFavorites,
   readRecents,
@@ -21,7 +21,7 @@ import {
   type StoredRecent,
 } from './lib/storage'
 
-type Tab = 'search' | 'photo' | 'cards' | 'saved'
+type Tab = 'search' | 'photo' | 'saved'
 type Orientation = 'upright' | 'reversed'
 
 type SpreadItem = {
@@ -36,8 +36,7 @@ type PhotoStage = 'camera' | 'detected' | 'correct'
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('search')
   const [searchQuery, setSearchQuery] = useState('')
-  const [gridQuery, setGridQuery] = useState('')
-  const [gridFilter, setGridFilter] = useState<CardFilter>('all')
+  const [searchFilter, setSearchFilter] = useState<CardFilter>('all')
   const [detailCardId, setDetailCardId] = useState<string | null>(null)
   const [detailOrientation, setDetailOrientation] = useState<Orientation>('upright')
   const [favoriteIds, setFavoriteIds] = useState<string[]>([])
@@ -174,9 +173,11 @@ function App() {
       {activeTab === 'search' && (
         <SearchPage
           query={searchQuery}
+          filter={searchFilter}
           recents={recents}
           favoriteIds={favoriteIds}
           onQueryChange={setSearchQuery}
+          onFilterChange={setSearchFilter}
           onOpenCard={(cardId) => openCard(cardId, 'search')}
           onCopy={(card) => void copyMeaning(card)}
           onToggleFavorite={toggleFavorite}
@@ -193,17 +194,6 @@ function App() {
           onAddDetectedToSpread={() => {
             detectedDemoIds.forEach((cardId, index) => addToSpread(cardId, index === 1 ? 'reversed' : 'upright', 'photo'))
           }}
-        />
-      )}
-      {activeTab === 'cards' && (
-        <CardsPage
-          query={gridQuery}
-          filter={gridFilter}
-          favoriteIds={favoriteIds}
-          onQueryChange={setGridQuery}
-          onFilterChange={setGridFilter}
-          onOpenCard={(cardId) => openCard(cardId, 'grid')}
-          onToggleFavorite={toggleFavorite}
         />
       )}
       {activeTab === 'saved' && (
@@ -234,9 +224,11 @@ function AppFrame({ children, toast }: { children: ReactNode; toast: string | nu
 
 function SearchPage({
   query,
+  filter,
   recents,
   favoriteIds,
   onQueryChange,
+  onFilterChange,
   onOpenCard,
   onCopy,
   onToggleFavorite,
@@ -244,9 +236,11 @@ function SearchPage({
   onGoPhoto,
 }: {
   query: string
+  filter: CardFilter
   recents: StoredRecent[]
   favoriteIds: string[]
   onQueryChange: (query: string) => void
+  onFilterChange: (filter: CardFilter) => void
   onOpenCard: (cardId: string) => void
   onCopy: (card: TarotCard) => void
   onToggleFavorite: (cardId: string) => void
@@ -254,14 +248,22 @@ function SearchPage({
   onGoPhoto: () => void
 }) {
   const deferredQuery = useDeferredValue(query)
-  const results = searchCards(deferredQuery, 'all', 12)
   const hasQuery = deferredQuery.trim().length > 0
+  const results = hasQuery ? searchCards(deferredQuery, 'all', 13) : []
   const best = results[0]?.card
-  const recentCards = recents.map((item) => cardsById.get(item.cardId)).filter((card): card is TarotCard => Boolean(card)).slice(0, 6)
-  const popularCards = getPopularCards()
+  const visualSourceCards = hasQuery ? results.slice(1).map((result) => result.card) : tarotCards
+  const visualCards = hasQuery ? visualSourceCards : filterCards(visualSourceCards, filter)
+  const recentCards = recents.map((item) => cardsById.get(item.cardId)).filter((card): card is TarotCard => Boolean(card)).slice(0, 4)
+  const gridTitle = hasQuery ? 'También podría ser' : 'Todas las cartas'
+  const gridCaption = hasQuery
+    ? `${visualCards.length} sugerencias`
+    : filter === 'all'
+      ? `${visualCards.length} cartas`
+      : `${getFilterLabel(filter)} · ${visualCards.length}`
+  const showVisualGrid = !hasQuery || visualCards.length > 0
 
   return (
-    <main className="page page-with-nav search-page">
+    <main className={`page page-with-nav search-page unified-search-page ${hasQuery ? 'search-page-active' : ''}`}>
       <header className="hero-header">
         <div className="top-row">
           <div className="top-spacer" />
@@ -281,10 +283,8 @@ function SearchPage({
           {best ? (
             <FastSearchResults
               best={best}
-              alternatives={results.slice(1, 7).map((result) => result.card)}
               isFavorite={favoriteIds.includes(best.id)}
               onOpenBest={() => onOpenCard(best.id)}
-              onOpenCard={onOpenCard}
               onCopyBest={() => onCopy(best)}
               onToggleFavorite={() => onToggleFavorite(best.id)}
               onAddToSpread={() => onAddToSpread(best.id)}
@@ -296,15 +296,27 @@ function SearchPage({
             />
           )}
         </section>
-      ) : (
-        <section className="stack-lg">
-          <CardRail title="Recientes" cards={recentCards.length > 0 ? recentCards : popularCards.slice(0, 4)} onOpen={onOpenCard} />
-          <CardRail title="Populares" cards={popularCards} onOpen={onOpenCard} />
+      ) : recentCards.length > 0 ? (
+        <RecentStrip cards={recentCards} onOpen={onOpenCard} />
+      ) : null}
+      {showVisualGrid && (
+        <section className={`visual-search-section ${hasQuery ? 'search-results-section' : ''}`}>
+          <SectionTitle title={gridTitle} caption={gridCaption} />
+          {!hasQuery && (
+            <div className="deck-filter">
+              <span>Filtrar mazo</span>
+              <FilterChips value={filter} onChange={onFilterChange} compact />
+            </div>
+          )}
+          {hasQuery ? (
+            <SearchResultGrid cards={visualCards} onOpenCard={onOpenCard} />
+          ) : (
+            <VisualCardGrid cards={visualCards} favoriteIds={favoriteIds} onOpenCard={onOpenCard} onToggleFavorite={onToggleFavorite} />
+          )}
         </section>
       )}
       <div className="home-search-dock">
-        {!hasQuery && <QuickHints onPick={onQueryChange} />}
-        <SearchBar value={query} onChange={onQueryChange} placeholder="Buscar carta, número o keyword..." autoFocus variant="primary" />
+        <SearchBar value={query} onChange={onQueryChange} placeholder="Buscar: Luna, 3 espadas, amor..." autoFocus variant="primary" />
       </div>
     </main>
   )
@@ -312,30 +324,26 @@ function SearchPage({
 
 function FastSearchResults({
   best,
-  alternatives,
   isFavorite,
   onOpenBest,
-  onOpenCard,
   onCopyBest,
   onToggleFavorite,
   onAddToSpread,
 }: {
   best: TarotCard
-  alternatives: TarotCard[]
   isFavorite: boolean
   onOpenBest: () => void
-  onOpenCard: (cardId: string) => void
   onCopyBest: () => void
   onToggleFavorite: () => void
   onAddToSpread: () => void
 }) {
   return (
-    <section className="fast-results" aria-label="Resultados de búsqueda">
+    <section className="fast-results" aria-label="Mejor resultado">
       <article className="fast-best-card glow-card">
         <button className="fast-best-main" type="button" onClick={onOpenBest}>
           <TarotCardArt card={best} size="small" />
           <span className="fast-best-copy">
-            <small>{best.arcana === 'major' ? `Arcano ${best.roman}` : best.suitEs}</small>
+            <small>Mejor resultado · {best.arcana === 'major' ? `Arcano ${best.roman}` : best.suitEs}</small>
             <strong>{best.nameEs}</strong>
             <em>{best.keywordsUpright.slice(0, 3).join(' · ')}</em>
           </span>
@@ -352,23 +360,6 @@ function FastSearchResults({
           <button type="button" onClick={onOpenBest}>Ver más</button>
         </div>
       </article>
-
-      {alternatives.length > 0 && (
-        <div className="fast-alternatives" aria-label="Alternativas">
-          <span>Otras coincidencias</span>
-          <div>
-            {alternatives.map((card) => (
-              <button key={card.id} type="button" onClick={() => onOpenCard(card.id)}>
-                <TarotCardArt card={card} size="tiny" />
-                <span>
-                  <strong>{card.shortName}</strong>
-                  <small>{card.keywordsUpright.slice(0, 2).join(' · ')}</small>
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
     </section>
   )
 }
@@ -386,56 +377,74 @@ function CompactCardResult({ card, onOpen }: { card: TarotCard; onOpen: () => vo
   )
 }
 
-function CardsPage({
-  query,
-  filter,
+function RecentStrip({ cards, onOpen }: { cards: TarotCard[]; onOpen: (cardId: string) => void }) {
+  return (
+    <section className="recent-strip" aria-label="Cartas recientes">
+      <span>Recientes</span>
+      <div>
+        {cards.map((card) => (
+          <button key={card.id} type="button" onClick={() => onOpen(card.id)}>
+            <TarotCardArt card={card} size="tiny" />
+            <strong>{card.shortName}</strong>
+          </button>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function VisualCardGrid({
+  cards,
   favoriteIds,
-  onQueryChange,
-  onFilterChange,
   onOpenCard,
   onToggleFavorite,
 }: {
-  query: string
-  filter: CardFilter
+  cards: TarotCard[]
   favoriteIds: string[]
-  onQueryChange: (query: string) => void
-  onFilterChange: (filter: CardFilter) => void
   onOpenCard: (cardId: string) => void
   onToggleFavorite: (cardId: string) => void
 }) {
-  const deferredQuery = useDeferredValue(query)
-  const cards = deferredQuery.trim()
-    ? searchCards(deferredQuery, filter, 78).map((result) => result.card)
-    : filterCards(tarotCards, filter)
-
   return (
-    <main className="page page-with-nav cards-page">
-      <PageHeader title="Todas las cartas" subtitle={`${cards.length} visibles · 78 en total`} compact />
-      <div className="cards-toolbar">
-        <SearchBar value={query} onChange={onQueryChange} placeholder="Buscar carta..." variant="compact" />
-        <FilterChips value={filter} onChange={onFilterChange} compact />
-      </div>
-      <div className="cards-grid" aria-label="Todas las cartas">
-        {cards.map((card) => (
-          <article className="grid-card" key={card.id}>
-            <button type="button" onClick={() => onOpenCard(card.id)} aria-label={`Ver ${card.nameEs}`}>
-              <TarotCardArt card={card} size="grid" />
-              <strong>{card.shortName}</strong>
-              <small>{card.arcana === 'major' ? card.roman : card.suitEs}</small>
-            </button>
-            <button
-              className={`mini-save ${favoriteIds.includes(card.id) ? 'active' : ''}`}
-              type="button"
-              onClick={() => onToggleFavorite(card.id)}
-              aria-label={favoriteIds.includes(card.id) ? `Quitar ${card.nameEs}` : `Guardar ${card.nameEs}`}
-            >
-              {favoriteIds.includes(card.id) ? '★' : '☆'}
-            </button>
-          </article>
-        ))}
-      </div>
-    </main>
+    <div className="cards-grid" aria-label="Todas las cartas">
+      {cards.map((card) => (
+        <article className="grid-card" key={card.id}>
+          <button type="button" onClick={() => onOpenCard(card.id)} aria-label={`Ver ${card.nameEs}`}>
+            <TarotCardArt card={card} size="grid" />
+            <strong>{card.shortName}</strong>
+            <small>{card.arcana === 'major' ? card.roman : card.suitEs}</small>
+          </button>
+          <button
+            className={`mini-save ${favoriteIds.includes(card.id) ? 'active' : ''}`}
+            type="button"
+            onClick={() => onToggleFavorite(card.id)}
+            aria-label={favoriteIds.includes(card.id) ? `Quitar ${card.nameEs}` : `Guardar ${card.nameEs}`}
+          >
+            {favoriteIds.includes(card.id) ? '★' : '☆'}
+          </button>
+        </article>
+      ))}
+    </div>
   )
+}
+
+function SearchResultGrid({ cards, onOpenCard }: { cards: TarotCard[]; onOpenCard: (cardId: string) => void }) {
+  return (
+    <div className="search-result-grid" aria-label="Resultados relacionados">
+      {cards.map((card) => (
+        <button className="search-result-tile" key={card.id} type="button" onClick={() => onOpenCard(card.id)}>
+          <TarotCardArt card={card} size="tiny" />
+          <span>
+            <strong>{card.shortName}</strong>
+            <small>{card.keywordsUpright.slice(0, 2).join(' · ')}</small>
+          </span>
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function getFilterLabel(filter: CardFilter) {
+  return filters.find((item) => item.id === filter)?.label ?? 'Todas las cartas'
 }
 
 function CardDetailPage({
@@ -955,38 +964,6 @@ function FilterChips({
   )
 }
 
-function QuickHints({ onPick }: { onPick: (query: string) => void }) {
-  return (
-    <section className="quick-hints" aria-label="Búsquedas sugeridas">
-      <span>Probar</span>
-      <div>
-        {['luna', '3 espadas', 'amor', 'xviii'].map((item) => (
-          <button key={item} type="button" onClick={() => onPick(item)}>
-            {item}
-          </button>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-function CardRail({ title, cards, onOpen }: { title: string; cards: TarotCard[]; onOpen: (cardId: string) => void }) {
-  return (
-    <section className="card-rail-section">
-      <SectionTitle title={title} />
-      <div className="card-rail">
-        {cards.map((card) => (
-          <button key={card.id} type="button" onClick={() => onOpen(card.id)}>
-            <TarotCardArt card={card} size="rail" />
-            <strong>{card.shortName}</strong>
-            <small>{card.arcana === 'major' ? card.roman : card.suitEs}</small>
-          </button>
-        ))}
-      </div>
-    </section>
-  )
-}
-
 function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' | 'medium' | 'large' | 'grid' | 'rail' }) {
   const sprite = cardSprite[card.id as keyof typeof cardSprite]
   const useSprite = size !== 'large' && Boolean(sprite)
@@ -1090,7 +1067,6 @@ function BottomNav({ activeTab, onChange }: { activeTab: Tab; onChange: (tab: Ta
   const items: Array<{ id: Tab; label: string; icon: ReactNode }> = [
     { id: 'search', label: 'Buscar', icon: <SearchIcon /> },
     { id: 'photo', label: 'Foto', icon: <CameraIcon /> },
-    { id: 'cards', label: 'Cartas', icon: <CardsIcon /> },
     { id: 'saved', label: 'Guardadas', icon: <BookmarkIcon /> },
   ]
 
@@ -1159,15 +1135,6 @@ function CameraIcon() {
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 8h3l1.5-2h7L17 8h3v11H4z" />
       <circle cx="12" cy="13.5" r="3.5" />
-    </svg>
-  )
-}
-
-function CardsIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="7" y="3" width="10" height="15" rx="2" />
-      <path d="M5 7 4 19a2 2 0 0 0 2 2h9" />
     </svg>
   )
 }
