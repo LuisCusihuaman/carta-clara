@@ -35,6 +35,11 @@ export type TarotCard = {
   popularityRank: number
   accent: string
   glyph: string
+  image: {
+    full: string
+    thumb: string
+    blur: string
+  }
 }
 
 type MajorSeed = {
@@ -541,6 +546,8 @@ const rankSeeds = [
 ]
 
 function makeMajor(seed: MajorSeed, index: number): TarotCard {
+  const image = makeCardImage(seed.id)
+
   return {
     id: seed.id,
     nameEs: seed.nameEs,
@@ -578,12 +585,14 @@ function makeMajor(seed: MajorSeed, index: number): TarotCard {
     popularityRank: [18, 16, 13, 0, 6, 3, 19].includes(index) ? index : index + 20,
     accent: seed.accent ?? '#d8b46a',
     glyph: seed.glyph ?? romans[index],
+    image,
   }
 }
 
 function makeMinor(suit: Suit, rank: (typeof rankSeeds)[number], suitIndex: number): TarotCard {
   const suitInfo = suitMeta[suit]
   const id = `${rank.id}_of_${suit}`
+  const image = makeCardImage(id)
   const nameEs = `${rank.es} de ${suitInfo.es}`
   const nameEn = `${rank.en} of ${suitInfo.en}`
   const numberAliases = rank.n
@@ -633,6 +642,7 @@ function makeMinor(suit: Suit, rank: (typeof rankSeeds)[number], suitIndex: numb
     popularityRank: 70 + suitIndex * 14 + rankSeeds.findIndex((item) => item.id === rank.id),
     accent: suitInfo.accent,
     glyph: rank.n ? String(rank.n) : rank.es.slice(0, 1),
+    image,
   }
 
   if (id === 'three_of_swords') {
@@ -662,6 +672,14 @@ function makeMinor(suit: Suit, rank: (typeof rankSeeds)[number], suitIndex: numb
   }
 
   return card
+}
+
+function makeCardImage(id: string): TarotCard['image'] {
+  return {
+    full: `/cards/full/${id}.webp`,
+    thumb: `/cards/thumb/${id}.webp`,
+    blur: `/cards/blur/${id}.webp`,
+  }
 }
 
 const majorCards = majorSeeds.map(makeMajor)

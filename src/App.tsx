@@ -1,5 +1,15 @@
-import { startTransition, useDeferredValue, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import {
+  startTransition,
+  useDeferredValue,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+  type SyntheticEvent,
+} from 'react'
 import './App.css'
+import { cardSprite, cardSpriteColumns, cardSpriteImage } from './data/cardSprite'
 import { cardsById, detectedDemoIds, tarotCards, type TarotCard } from './data/cards'
 import { filterCards, filters, getPopularCards, searchCards, type CardFilter } from './lib/search'
 import {
@@ -999,14 +1009,42 @@ function CardRail({ title, cards, onOpen }: { title: string; cards: TarotCard[];
 }
 
 function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' | 'medium' | 'large' | 'grid' | 'rail' }) {
+  const sprite = cardSprite[card.id as keyof typeof cardSprite]
+  const useSprite = size !== 'large' && Boolean(sprite)
+
   return (
-    <span className={`tarot-art tarot-art-${size}`} style={{ '--card-accent': card.accent } as CSSProperties} aria-hidden="true">
-      <span className="tarot-stars" />
-      <span className="tarot-moon" />
-      <span className="tarot-glyph">{card.glyph}</span>
+    <span className={`tarot-art tarot-art-${size} ${useSprite ? 'has-image' : ''}`} style={{ '--card-accent': card.accent } as CSSProperties}>
+      {size === 'large' ? (
+        <img src={card.image.full} alt={card.nameEs} loading="lazy" decoding="async" onError={hideBrokenImage} />
+      ) : sprite ? (
+        <span
+          className="tarot-sprite"
+          style={
+            {
+              '--sprite-url': `url(${cardSpriteImage})`,
+              '--sprite-col': sprite.x / sprite.w,
+              '--sprite-row': sprite.y / sprite.h,
+              '--sprite-columns': cardSpriteColumns,
+            } as CSSProperties
+          }
+          aria-hidden="true"
+        />
+      ) : (
+        <img src={card.image.thumb} alt="" loading="lazy" decoding="async" onError={hideBrokenImage} />
+      )}
+      <span className="tarot-css-fallback" aria-hidden="true">
+        <span className="tarot-stars" />
+        <span className="tarot-moon" />
+        <span className="tarot-glyph">{card.glyph}</span>
+      </span>
+      <span className="card-es-label">{card.nameEs}</span>
       <span className="tarot-name">{card.shortName}</span>
     </span>
   )
+}
+
+function hideBrokenImage(event: SyntheticEvent<HTMLImageElement>) {
+  event.currentTarget.hidden = true
 }
 
 function MeaningLine({ label, text }: { label: string; text: string }) {
