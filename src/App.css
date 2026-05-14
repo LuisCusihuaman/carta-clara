@@ -370,6 +370,165 @@
   border: 1px solid rgba(242, 202, 80, 0.16);
 }
 
+.fast-results {
+  display: grid;
+  gap: 9px;
+}
+
+.fast-best-card {
+  display: grid;
+  gap: 9px;
+  padding: 11px;
+  border-radius: 20px;
+  border: 1px solid rgba(242, 202, 80, 0.16);
+  background: linear-gradient(145deg, rgba(20, 15, 36, 0.94), rgba(11, 8, 21, 0.96));
+}
+
+.fast-best-main {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  text-align: left;
+  background: transparent;
+}
+
+.fast-best-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+  flex: 1;
+}
+
+.fast-best-copy small {
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fast-best-copy strong {
+  overflow: hidden;
+  color: var(--text-primary);
+  font-family: var(--heading);
+  font-size: 26px;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fast-best-copy em {
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fast-meanings {
+  display: grid;
+  gap: 4px;
+  padding: 8px 9px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.fast-meanings p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.fast-meanings b {
+  color: var(--text-primary);
+}
+
+.fast-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+
+.fast-actions button {
+  min-height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(220, 184, 255, 0.18);
+  color: var(--text-secondary);
+  background: rgba(25, 20, 45, 0.68);
+  font-size: 12px;
+}
+
+.fast-actions button:last-child {
+  color: white;
+  background: linear-gradient(135deg, rgba(119, 1, 208, 0.85), rgba(212, 175, 55, 0.75));
+}
+
+.fast-alternatives {
+  display: grid;
+  gap: 6px;
+}
+
+.fast-alternatives > span {
+  color: var(--text-faint);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.fast-alternatives > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.fast-alternatives button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 7px 8px;
+  border: 1px solid rgba(242, 202, 80, 0.12);
+  border-radius: 14px;
+  color: inherit;
+  text-align: left;
+  background: rgba(17, 12, 36, 0.72);
+}
+
+.fast-alternatives button span:last-child {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.fast-alternatives strong,
+.fast-alternatives small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fast-alternatives strong {
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.fast-alternatives small {
+  color: var(--text-faint);
+  font-size: 10px;
+}
+
 .glow-card {
   box-shadow: 0 0 0 1px rgba(169, 88, 229, 0.14), 0 20px 55px rgba(119, 1, 208, 0.18);
 }

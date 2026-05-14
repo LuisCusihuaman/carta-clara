@@ -279,27 +279,16 @@ function SearchPage({
       {hasQuery ? (
         <section className="stack-lg">
           {best ? (
-            <>
-              <SectionTitle title="Mejor resultado" />
-              <ResultHero
-                card={best}
-                isFavorite={favoriteIds.includes(best.id)}
-                onOpen={() => onOpenCard(best.id)}
-                onCopy={() => onCopy(best)}
-                onToggleFavorite={() => onToggleFavorite(best.id)}
-                onAddToSpread={() => onAddToSpread(best.id)}
-              />
-              {results.length > 1 && (
-                <>
-                  <SectionTitle title="Más resultados" />
-                  <div className="compact-list">
-                    {results.slice(1).map((result) => (
-                      <CompactCardResult key={result.card.id} card={result.card} onOpen={() => onOpenCard(result.card.id)} />
-                    ))}
-                  </div>
-                </>
-              )}
-            </>
+            <FastSearchResults
+              best={best}
+              alternatives={results.slice(1, 7).map((result) => result.card)}
+              isFavorite={favoriteIds.includes(best.id)}
+              onOpenBest={() => onOpenCard(best.id)}
+              onOpenCard={onOpenCard}
+              onCopyBest={() => onCopy(best)}
+              onToggleFavorite={() => onToggleFavorite(best.id)}
+              onAddToSpread={() => onAddToSpread(best.id)}
+            />
           ) : (
             <EmptyState
               title="No encontré esa carta."
@@ -321,50 +310,66 @@ function SearchPage({
   )
 }
 
-function ResultHero({
-  card,
+function FastSearchResults({
+  best,
+  alternatives,
   isFavorite,
-  onOpen,
-  onCopy,
+  onOpenBest,
+  onOpenCard,
+  onCopyBest,
   onToggleFavorite,
   onAddToSpread,
 }: {
-  card: TarotCard
+  best: TarotCard
+  alternatives: TarotCard[]
   isFavorite: boolean
-  onOpen: () => void
-  onCopy: () => void
+  onOpenBest: () => void
+  onOpenCard: (cardId: string) => void
+  onCopyBest: () => void
   onToggleFavorite: () => void
   onAddToSpread: () => void
 }) {
   return (
-    <article className="result-hero glow-card">
-      <button className="hero-card-main" type="button" onClick={onOpen}>
-        <TarotCardArt card={card} size="medium" />
-        <div className="result-copy">
-          <p className="meta-line">{card.arcana === 'major' ? `Arcano Mayor ${card.roman}` : `${card.rankEs} de ${card.suitEs}`}</p>
-          <h2>{card.nameEs}</h2>
-          <p className="keywords">{card.keywordsUpright.slice(0, 4).join(' · ')}</p>
+    <section className="fast-results" aria-label="Resultados de búsqueda">
+      <article className="fast-best-card glow-card">
+        <button className="fast-best-main" type="button" onClick={onOpenBest}>
+          <TarotCardArt card={best} size="small" />
+          <span className="fast-best-copy">
+            <small>{best.arcana === 'major' ? `Arcano ${best.roman}` : best.suitEs}</small>
+            <strong>{best.nameEs}</strong>
+            <em>{best.keywordsUpright.slice(0, 3).join(' · ')}</em>
+          </span>
+          <span className="result-chevron" aria-hidden="true">›</span>
+        </button>
+        <div className="fast-meanings">
+          <p><b>Der.</b> {best.oneLineUpright}</p>
+          <p><b>Inv.</b> {best.oneLineReversed}</p>
         </div>
-      </button>
-      <div className="meaning-pair">
-        <MeaningLine label="Derecha" text={card.oneLineUpright} />
-        <MeaningLine label="Invertida" text={card.oneLineReversed} />
-      </div>
-      <div className="action-grid">
-        <button type="button" onClick={onOpen}>
-          Ver
-        </button>
-        <button type="button" onClick={onCopy}>
-          Copiar
-        </button>
-        <button type="button" onClick={onToggleFavorite}>
-          {isFavorite ? 'Guardada' : 'Guardar'}
-        </button>
-        <button type="button" onClick={onAddToSpread}>
-          Tirada
-        </button>
-      </div>
-    </article>
+        <div className="fast-actions">
+          <button type="button" onClick={onCopyBest}>Copiar</button>
+          <button type="button" onClick={onToggleFavorite}>{isFavorite ? 'Guardada' : 'Guardar'}</button>
+          <button type="button" onClick={onAddToSpread}>Tirada</button>
+          <button type="button" onClick={onOpenBest}>Ver más</button>
+        </div>
+      </article>
+
+      {alternatives.length > 0 && (
+        <div className="fast-alternatives" aria-label="Alternativas">
+          <span>Otras coincidencias</span>
+          <div>
+            {alternatives.map((card) => (
+              <button key={card.id} type="button" onClick={() => onOpenCard(card.id)}>
+                <TarotCardArt card={card} size="tiny" />
+                <span>
+                  <strong>{card.shortName}</strong>
+                  <small>{card.keywordsUpright.slice(0, 2).join(' · ')}</small>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
   )
 }
 
@@ -1038,18 +1043,6 @@ function fallbackToThumb(event: SyntheticEvent<HTMLImageElement>, thumbSrc: stri
   }
 
   hideBrokenImage(event)
-}
-
-function MeaningLine({ label, text }: { label: string; text: string }) {
-  return (
-    <div className="meaning-line">
-      <span />
-      <div>
-        <strong>{label}</strong>
-        <p>{text}</p>
-      </div>
-    </div>
-  )
 }
 
 function PageHeader({ title, subtitle, centered = false, compact = false }: { title: string; subtitle: string; centered?: boolean; compact?: boolean }) {
