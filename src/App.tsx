@@ -2,7 +2,6 @@ import {
   startTransition,
   useDeferredValue,
   useEffect,
-  useLayoutEffect,
   useRef,
   useState,
   type CSSProperties,
@@ -37,7 +36,6 @@ type PhotoStage = 'camera' | 'detected' | 'correct'
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('search')
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchFilter, setSearchFilter] = useState<CardFilter>('all')
   const [gridQuery, setGridQuery] = useState('')
   const [gridFilter, setGridFilter] = useState<CardFilter>('all')
   const [detailCardId, setDetailCardId] = useState<string | null>(null)
@@ -49,10 +47,6 @@ function App() {
   const [spreadOpen, setSpreadOpen] = useState(false)
   const [spread, setSpread] = useState<SpreadItem[]>([])
   const toastTimer = useRef<number | undefined>(undefined)
-
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-  }, [activeTab, detailCardId, spreadOpen, photoStage])
 
   useEffect(() => {
     let mounted = true
@@ -180,11 +174,9 @@ function App() {
       {activeTab === 'search' && (
         <SearchPage
           query={searchQuery}
-          filter={searchFilter}
           recents={recents}
           favoriteIds={favoriteIds}
           onQueryChange={setSearchQuery}
-          onFilterChange={setSearchFilter}
           onOpenCard={(cardId) => openCard(cardId, 'search')}
           onCopy={(card) => void copyMeaning(card)}
           onToggleFavorite={toggleFavorite}
@@ -242,11 +234,9 @@ function AppFrame({ children, toast }: { children: ReactNode; toast: string | nu
 
 function SearchPage({
   query,
-  filter,
   recents,
   favoriteIds,
   onQueryChange,
-  onFilterChange,
   onOpenCard,
   onCopy,
   onToggleFavorite,
@@ -254,11 +244,9 @@ function SearchPage({
   onGoPhoto,
 }: {
   query: string
-  filter: CardFilter
   recents: StoredRecent[]
   favoriteIds: string[]
   onQueryChange: (query: string) => void
-  onFilterChange: (filter: CardFilter) => void
   onOpenCard: (cardId: string) => void
   onCopy: (card: TarotCard) => void
   onToggleFavorite: (cardId: string) => void
@@ -266,14 +254,14 @@ function SearchPage({
   onGoPhoto: () => void
 }) {
   const deferredQuery = useDeferredValue(query)
-  const results = searchCards(deferredQuery, filter, 12)
+  const results = searchCards(deferredQuery, 'all', 12)
   const hasQuery = deferredQuery.trim().length > 0
   const best = results[0]?.card
   const recentCards = recents.map((item) => cardsById.get(item.cardId)).filter((card): card is TarotCard => Boolean(card)).slice(0, 6)
   const popularCards = getPopularCards()
 
   return (
-    <main className="page page-with-nav">
+    <main className="page page-with-nav search-page">
       <header className="hero-header">
         <div className="top-row">
           <div className="top-spacer" />
@@ -288,14 +276,11 @@ function SearchPage({
         <h1>¿Qué carta salió?</h1>
       </header>
 
-      <SearchBar value={query} onChange={onQueryChange} placeholder="Buscar carta, número o keyword..." autoFocus />
-      <FilterChips value={filter} onChange={onFilterChange} withPhoto onPhoto={onGoPhoto} />
-
       {hasQuery ? (
         <section className="stack-lg">
           {best ? (
             <>
-              <SectionTitle title="Mejor resultado" caption={`Respuesta local · ${results.length} coincidencias`} />
+              <SectionTitle title="Mejor resultado" />
               <ResultHero
                 card={best}
                 isFavorite={favoriteIds.includes(best.id)}
@@ -304,18 +289,16 @@ function SearchPage({
                 onToggleFavorite={() => onToggleFavorite(best.id)}
                 onAddToSpread={() => onAddToSpread(best.id)}
               />
-              <SectionTitle title="Más resultados" />
-              <div className="compact-list">
-                {results.slice(1).map((result) => (
-                  <CompactCardResult
-                    key={result.card.id}
-                    card={result.card}
-                    score={result.score}
-                    onOpen={() => onOpenCard(result.card.id)}
-                  />
-                ))}
-              </div>
-              <SuggestionList query={deferredQuery} onPick={onQueryChange} />
+              {results.length > 1 && (
+                <>
+                  <SectionTitle title="Más resultados" />
+                  <div className="compact-list">
+                    {results.slice(1).map((result) => (
+                      <CompactCardResult key={result.card.id} card={result.card} onOpen={() => onOpenCard(result.card.id)} />
+                    ))}
+                  </div>
+                </>
+              )}
             </>
           ) : (
             <EmptyState
@@ -326,16 +309,14 @@ function SearchPage({
         </section>
       ) : (
         <section className="stack-lg">
-          <QuickPrompt onPick={onQueryChange} />
           <CardRail title="Recientes" cards={recentCards.length > 0 ? recentCards : popularCards.slice(0, 4)} onOpen={onOpenCard} />
           <CardRail title="Populares" cards={popularCards} onOpen={onOpenCard} />
-          <div className="metric-panel">
-            <span>78 cartas</span>
-            <span>ES/EN</span>
-            <span>Offline-first</span>
-          </div>
         </section>
       )}
+      <div className="home-search-dock">
+        {!hasQuery && <QuickHints onPick={onQueryChange} />}
+        <SearchBar value={query} onChange={onQueryChange} placeholder="Buscar carta, número o keyword..." autoFocus variant="primary" />
+      </div>
     </main>
   )
 }
@@ -387,7 +368,7 @@ function ResultHero({
   )
 }
 
-function CompactCardResult({ card, score, onOpen }: { card: TarotCard; score: number; onOpen: () => void }) {
+function CompactCardResult({ card, onOpen }: { card: TarotCard; onOpen: () => void }) {
   return (
     <button className="compact-result" type="button" onClick={onOpen}>
       <TarotCardArt card={card} size="tiny" />
@@ -395,7 +376,7 @@ function CompactCardResult({ card, score, onOpen }: { card: TarotCard; score: nu
         <strong>{card.nameEs}</strong>
         <small>{card.keywordsUpright.slice(0, 3).join(' · ')}</small>
       </span>
-      <span className="score-pill">{Math.min(99, Math.round(score / 12))}%</span>
+      <span className="result-chevron" aria-hidden="true">›</span>
     </button>
   )
 }
@@ -423,10 +404,12 @@ function CardsPage({
     : filterCards(tarotCards, filter)
 
   return (
-    <main className="page page-with-nav">
-      <PageHeader title="Todas las cartas" subtitle="Grilla completa del mazo" />
-      <SearchBar value={query} onChange={onQueryChange} placeholder="Buscar en las 78 cartas..." />
-      <FilterChips value={filter} onChange={onFilterChange} />
+    <main className="page page-with-nav cards-page">
+      <PageHeader title="Todas las cartas" subtitle={`${cards.length} visibles · 78 en total`} compact />
+      <div className="cards-toolbar">
+        <SearchBar value={query} onChange={onQueryChange} placeholder="Buscar carta..." variant="compact" />
+        <FilterChips value={filter} onChange={onFilterChange} compact />
+      </div>
       <div className="cards-grid" aria-label="Todas las cartas">
         {cards.map((card) => (
           <article className="grid-card" key={card.id}>
@@ -441,7 +424,7 @@ function CardsPage({
               onClick={() => onToggleFavorite(card.id)}
               aria-label={favoriteIds.includes(card.id) ? `Quitar ${card.nameEs}` : `Guardar ${card.nameEs}`}
             >
-              {favoriteIds.includes(card.id) ? 'Guardada' : 'Guardar'}
+              {favoriteIds.includes(card.id) ? '★' : '☆'}
             </button>
           </article>
         ))}
@@ -836,7 +819,7 @@ function SavedSection({
       {cards.length > 0 ? (
         <div className="compact-list">
           {cards.map((card) => (
-            <CompactCardResult key={card.id} card={card} score={900} onOpen={() => onOpenCard(card.id)} />
+            <CompactCardResult key={card.id} card={card} onOpen={() => onOpenCard(card.id)} />
           ))}
         </div>
       ) : (
@@ -908,14 +891,16 @@ function SearchBar({
   onChange,
   placeholder,
   autoFocus = false,
+  variant = 'default',
 }: {
   value: string
   onChange: (value: string) => void
   placeholder: string
   autoFocus?: boolean
+  variant?: 'default' | 'primary' | 'compact'
 }) {
   return (
-    <label className="search-bar">
+    <label className={`search-bar search-bar-${variant}`}>
       <span aria-hidden="true">
         <SearchIcon />
       </span>
@@ -941,14 +926,16 @@ function FilterChips({
   onChange,
   withPhoto = false,
   onPhoto,
+  compact = false,
 }: {
   value: CardFilter
   onChange: (value: CardFilter) => void
   withPhoto?: boolean
   onPhoto?: () => void
+  compact?: boolean
 }) {
   return (
-    <div className="chip-row" aria-label="Filtros">
+    <div className={`chip-row ${compact ? 'compact' : ''}`} aria-label="Filtros">
       {withPhoto && (
         <button type="button" onClick={onPhoto} className="chip photo-chip">
           Foto
@@ -963,11 +950,10 @@ function FilterChips({
   )
 }
 
-function QuickPrompt({ onPick }: { onPick: (query: string) => void }) {
+function QuickHints({ onPick }: { onPick: (query: string) => void }) {
   return (
-    <section className="quick-panel">
-      <h2>Buscá una carta</h2>
-      <p>Probá “La Luna”, “3 espadas”, “amor” o “XVIII”.</p>
+    <section className="quick-hints" aria-label="Búsquedas sugeridas">
+      <span>Probar</span>
       <div>
         {['luna', '3 espadas', 'amor', 'xviii'].map((item) => (
           <button key={item} type="button" onClick={() => onPick(item)}>
@@ -975,23 +961,6 @@ function QuickPrompt({ onPick }: { onPick: (query: string) => void }) {
           </button>
         ))}
       </div>
-    </section>
-  )
-}
-
-function SuggestionList({ query, onPick }: { query: string; onPick: (query: string) => void }) {
-  const clean = query.trim() || 'luna'
-  const suggestions = [`${clean} significado`, `${clean} invertida`, `${clean} amor`, `${clean} trabajo`]
-
-  return (
-    <section className="suggestions">
-      <h2>Sugerencias</h2>
-      {suggestions.map((suggestion) => (
-        <button key={suggestion} type="button" onClick={() => onPick(suggestion)}>
-          <SearchIcon />
-          <span>{suggestion}</span>
-        </button>
-      ))}
     </section>
   )
 }
@@ -1019,6 +988,7 @@ function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' 
   const spriteColumn = sprite ? sprite.x / sprite.w : 0
   const spriteRow = sprite ? sprite.y / sprite.h : 0
   const spriteRows = getSpriteRows()
+  const showFallbackLabel = !useSprite && size !== 'large'
 
   return (
     <span className={`tarot-art tarot-art-${size} ${useSprite ? 'has-image' : ''}`} style={{ '--card-accent': card.accent } as CSSProperties}>
@@ -1046,8 +1016,7 @@ function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' 
         <span className="tarot-moon" />
         <span className="tarot-glyph">{card.glyph}</span>
       </span>
-      <span className="card-es-label">{card.nameEs}</span>
-      <span className="tarot-name">{card.shortName}</span>
+      {showFallbackLabel && <span className="tarot-name">{card.shortName}</span>}
     </span>
   )
 }
@@ -1083,9 +1052,9 @@ function MeaningLine({ label, text }: { label: string; text: string }) {
   )
 }
 
-function PageHeader({ title, subtitle, centered = false }: { title: string; subtitle: string; centered?: boolean }) {
+function PageHeader({ title, subtitle, centered = false, compact = false }: { title: string; subtitle: string; centered?: boolean; compact?: boolean }) {
   return (
-    <header className={`page-header ${centered ? 'centered' : ''}`}>
+    <header className={`page-header ${centered ? 'centered' : ''} ${compact ? 'compact' : ''}`}>
       <div className="brand-mark small" aria-hidden="true">
         <SunIcon />
       </div>

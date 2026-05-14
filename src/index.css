@@ -30,19 +30,20 @@
 }
 
 html {
-  min-height: 100%;
+  height: 100%;
   background: #05040a;
 }
 
 body {
   min-width: 320px;
-  min-height: 100svh;
+  height: 100%;
   margin: 0;
+  overflow: hidden;
   background: #05040a;
 }
 
 #root {
-  min-height: 100svh;
+  height: 100%;
 }
 
 img,
