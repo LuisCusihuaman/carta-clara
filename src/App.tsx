@@ -2,6 +2,7 @@ import {
   startTransition,
   useDeferredValue,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type CSSProperties,
@@ -48,6 +49,10 @@ function App() {
   const [spreadOpen, setSpreadOpen] = useState(false)
   const [spread, setSpread] = useState<SpreadItem[]>([])
   const toastTimer = useRef<number | undefined>(undefined)
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [activeTab, detailCardId, spreadOpen, photoStage])
 
   useEffect(() => {
     let mounted = true
