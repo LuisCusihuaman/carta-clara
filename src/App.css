@@ -538,9 +538,9 @@
 .tarot-sprite {
   z-index: 2;
   background-image: var(--sprite-url);
-  background-position: calc(-100% * var(--sprite-col)) calc(-100% * var(--sprite-row));
+  background-position: var(--sprite-x) var(--sprite-y);
   background-repeat: no-repeat;
-  background-size: calc(100% * var(--sprite-columns)) auto;
+  background-size: calc(100% * var(--sprite-columns)) calc(100% * var(--sprite-rows));
 }
 
 .tarot-sprite::after,

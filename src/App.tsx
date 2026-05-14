@@ -1011,6 +1011,9 @@ function CardRail({ title, cards, onOpen }: { title: string; cards: TarotCard[];
 function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' | 'medium' | 'large' | 'grid' | 'rail' }) {
   const sprite = cardSprite[card.id as keyof typeof cardSprite]
   const useSprite = size !== 'large' && Boolean(sprite)
+  const spriteColumn = sprite ? sprite.x / sprite.w : 0
+  const spriteRow = sprite ? sprite.y / sprite.h : 0
+  const spriteRows = getSpriteRows()
 
   return (
     <span className={`tarot-art tarot-art-${size} ${useSprite ? 'has-image' : ''}`} style={{ '--card-accent': card.accent } as CSSProperties}>
@@ -1022,9 +1025,10 @@ function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' 
           style={
             {
               '--sprite-url': `url(${cardSpriteImage})`,
-              '--sprite-col': sprite.x / sprite.w,
-              '--sprite-row': sprite.y / sprite.h,
+              '--sprite-x': `${(spriteColumn / Math.max(1, cardSpriteColumns - 1)) * 100}%`,
+              '--sprite-y': `${(spriteRow / Math.max(1, spriteRows - 1)) * 100}%`,
               '--sprite-columns': cardSpriteColumns,
+              '--sprite-rows': spriteRows,
             } as CSSProperties
           }
           aria-hidden="true"
@@ -1041,6 +1045,12 @@ function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' 
       <span className="tarot-name">{card.shortName}</span>
     </span>
   )
+}
+
+function getSpriteRows() {
+  const entries = Object.values(cardSprite)
+  if (entries.length === 0) return 1
+  return Math.max(...entries.map((entry) => entry.y / entry.h)) + 1
 }
 
 function hideBrokenImage(event: SyntheticEvent<HTMLImageElement>) {
