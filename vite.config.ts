@@ -30,7 +30,7 @@ export default defineConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2,json}'],
-      globIgnores: ['**/cards/source/**', '**/cards/full/**', '**/cards/thumb/**', '**/cards/blur/**', '**/cards/sprites/**'],
+      globIgnores: ['**/assets/opencv-*.js', '**/cards/source/**', '**/cards/full/**', '**/cards/thumb/**', '**/cards/blur/**', '**/cards/sprites/**'],
       navigateFallback: '/index.html',
       runtimeCaching: [
         {

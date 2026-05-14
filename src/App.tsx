@@ -1,9 +1,11 @@
 import {
   startTransition,
+  useCallback,
   useDeferredValue,
   useEffect,
   useRef,
   useState,
+  type ChangeEvent,
   type CSSProperties,
   type ReactNode,
   type SyntheticEvent,
@@ -11,6 +13,7 @@ import {
 import './App.css'
 import { cardSprite, cardSpriteColumns, cardSpriteImage } from './data/cardSprite'
 import { cardsById, detectedDemoIds, tarotCards, type TarotCard } from './data/cards'
+import { isConfidentCameraMatch, matchCameraFrame, matchImageFile, type CameraMatch } from './lib/cameraMatcher'
 import { filterCards, filters, searchCards, type CardFilter } from './lib/search'
 import {
   readFavorites,
@@ -23,6 +26,7 @@ import {
 
 type Tab = 'search' | 'photo' | 'saved'
 type Orientation = 'upright' | 'reversed'
+type DetailIconName = 'spark' | 'reversed' | 'heart' | 'work' | 'money' | 'advice' | 'question' | 'eye' | 'copy' | 'bookmark' | 'spread'
 
 type SpreadItem = {
   cardId: string
@@ -32,6 +36,10 @@ type SpreadItem = {
 }
 
 type PhotoStage = 'camera' | 'detected' | 'correct'
+type CameraStatus = 'idle' | 'active' | 'denied' | 'unsupported'
+type ScanStatus = 'idle' | 'scanning' | 'confident' | 'uncertain'
+
+const cameraPermissionStorageKey = 'carta-clara-camera-granted'
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('search')
@@ -191,6 +199,7 @@ function App() {
           onStageChange={setPhotoStage}
           onOpenCard={(cardId) => openCard(cardId, 'photo')}
           onOpenSpread={openDemoSpread}
+          onAddCardToSpread={(cardId, orientation) => addToSpread(cardId, orientation, 'photo')}
           onAddDetectedToSpread={() => {
             detectedDemoIds.forEach((cardId, index) => addToSpread(cardId, index === 1 ? 'reversed' : 'upright', 'photo'))
           }}
@@ -473,82 +482,159 @@ function CardDetailPage({
   onOpenSpread: () => void
 }) {
   const isUpright = orientation === 'upright'
-  const detailItems = [
-    ['Resumen', isUpright ? card.oneLineUpright : card.oneLineReversed, 'i'],
-    ['En 10 segundos', isUpright ? card.quickUpright : card.quickReversed, '10'],
-    ['Amor', isUpright ? card.loveUpright : card.loveReversed, 'a'],
-    ['Trabajo', isUpright ? card.workUpright : card.workReversed, 't'],
-    ['Dinero', isUpright ? card.moneyUpright : card.moneyReversed, '$'],
-    ['Consejo', isUpright ? card.adviceUpright : card.adviceReversed, '!'],
-    ['Sí / No', card.yesNo, '?'],
+  const leadMeaning = isUpright ? card.oneLineUpright : card.oneLineReversed
+  const arcanaLabel = card.arcana === 'major' ? `Arcano Mayor ${card.roman}` : `${card.rankEs} de ${card.suitEs}`
+  const keywords = (isUpright ? card.keywordsUpright : card.keywordsReversed).slice(0, 3)
+  const quickMeaning = isUpright ? card.quickUpright : card.quickReversed
+  const detailAreas: Array<{ title: string; text: string; icon: DetailIconName }> = [
+    { title: 'Amor', text: isUpright ? card.loveUpright : card.loveReversed, icon: 'heart' },
+    { title: 'Trabajo', text: isUpright ? card.workUpright : card.workReversed, icon: 'work' },
+    { title: 'Dinero', text: isUpright ? card.moneyUpright : card.moneyReversed, icon: 'money' },
+    { title: 'Consejo', text: isUpright ? card.adviceUpright : card.adviceReversed, icon: 'advice' },
+    { title: 'Sí / No', text: card.yesNo, icon: 'question' },
   ]
 
   return (
-    <main className="page detail-page">
-      <header className="detail-topbar">
-        <button className="round-ghost" type="button" onClick={onBack} aria-label="Volver">
-          ←
-        </button>
-        <div className="brand-mark small" aria-hidden="true">
-          <SunIcon />
-        </div>
-        <button className={`round-ghost ${isFavorite ? 'active' : ''}`} type="button" onClick={onToggleFavorite}>
-          {isFavorite ? '★' : '☆'}
-        </button>
+    <main className="page detail-page detail-page-redesign" style={{ '--detail-accent': card.accent } as CSSProperties}>
+      <header className="detail-cover">
+        <img
+          className="detail-cover-image"
+          src={card.image.full}
+          alt=""
+          loading="eager"
+          decoding="async"
+          onError={(event) => fallbackToThumb(event, card.image.thumb)}
+        />
+        <div className="detail-cover-vignette" />
+        <nav className="detail-cover-nav" aria-label="Acciones de carta">
+          <button className="round-ghost detail-nav-button" type="button" onClick={onBack} aria-label="Volver">
+            ←
+          </button>
+          <button
+            className={`round-ghost detail-nav-button ${isFavorite ? 'active' : ''}`}
+            type="button"
+            onClick={onToggleFavorite}
+            aria-label={isFavorite ? 'Quitar de guardadas' : 'Guardar carta'}
+          >
+            <DetailIcon name="bookmark" />
+          </button>
+        </nav>
+
+        <section className="detail-cover-copy">
+          <p className="detail-eyebrow">{arcanaLabel}</p>
+          <h1>{card.nameEs}</h1>
+          <p className="detail-english-name">{card.nameEn}</p>
+          <div className="detail-star-rule" aria-hidden="true">
+            <span />
+            <i>✦</i>
+            <span />
+          </div>
+          <p className="detail-cover-lead">{leadMeaning}</p>
+          <div className="detail-keyword-pills" aria-label="Palabras clave">
+            {keywords.map((keyword) => (
+              <span key={keyword}>{keyword}</span>
+            ))}
+          </div>
+        </section>
       </header>
 
-      <section className="detail-hero">
-        <TarotCardArt card={card} size="large" />
-        <div className="detail-title">
-          <h1>{card.nameEs}</h1>
-          <p>{card.nameEn} · {card.arcana === 'major' ? `Arcano Mayor ${card.roman}` : `${card.rankEs} de ${card.suitEs}`}</p>
-          <span>{card.keywordsUpright.slice(0, 4).join(' · ')}</span>
-        </div>
+      <section className="detail-meaning-switch" aria-label="Significados por orientación">
+        <button
+          className={`detail-meaning-card ${orientation === 'upright' ? 'active' : 'muted'}`}
+          type="button"
+          onClick={() => onOrientationChange('upright')}
+          aria-pressed={orientation === 'upright'}
+        >
+          <span className="detail-meaning-heading">
+            <span className="detail-meaning-icon glow"><DetailIcon name="spark" /></span>
+            <strong>Derecha</strong>
+          </span>
+          <span className="detail-meaning-line" />
+          <span>{card.oneLineUpright}</span>
+        </button>
+        <span className="detail-meaning-separator" aria-hidden="true">
+          <i>✦</i>
+        </span>
+        <button
+          className={`detail-meaning-card reversed ${orientation === 'reversed' ? 'active' : 'muted'}`}
+          type="button"
+          onClick={() => onOrientationChange('reversed')}
+          aria-pressed={orientation === 'reversed'}
+        >
+          <span className="detail-meaning-heading">
+            <span className="detail-meaning-icon"><DetailIcon name="reversed" /></span>
+            <strong>Invertida</strong>
+          </span>
+          <span className="detail-meaning-line" />
+          <span>{card.oneLineReversed}</span>
+        </button>
       </section>
 
-      <div className="segmented" role="group" aria-label="Orientación">
-        <button className={orientation === 'upright' ? 'selected' : ''} type="button" onClick={() => onOrientationChange('upright')}>
-          Derecha
-        </button>
-        <button className={orientation === 'reversed' ? 'selected' : ''} type="button" onClick={() => onOrientationChange('reversed')}>
-          Invertida
-        </button>
-      </div>
-
-      <section className="detail-list">
-        {detailItems.map(([title, text, icon]) => (
-          <article className="detail-row" key={title}>
-            <span className="row-icon">{icon}</span>
-            <div>
-              <h2>{title}</h2>
-              <p>{text}</p>
-            </div>
+      <section className="detail-area-grid" aria-label="Áreas de interpretación">
+        {detailAreas.map((item) => (
+          <article className="detail-area-card" key={item.title}>
+            <span className="detail-area-icon"><DetailIcon name={item.icon} /></span>
+            <h2>{item.title}</h2>
+            <p>{item.text}</p>
           </article>
         ))}
       </section>
 
-      <section className="related-section">
-        <SectionTitle title="Parecidas" />
-        <div className="related-row">
+      <section className="detail-fast-meaning">
+        <div className="detail-countdown" aria-hidden="true">
+          <span>10</span>
+          <small>S</small>
+        </div>
+        <div>
+          <h2>En 10 segundos</h2>
+          <p>{quickMeaning}</p>
+        </div>
+        <div className="detail-eye-mark" aria-hidden="true">
+          <DetailIcon name="eye" />
+        </div>
+      </section>
+
+      <section className="detail-related-section">
+        <div className="detail-related-heading">
+          <h2>Parecidas</h2>
+          <span>✦</span>
+        </div>
+        <div className="detail-related-row">
           {card.relatedCards.slice(0, 3).map((cardId) => {
             const related = cardsById.get(cardId)
             if (!related) return null
+            const relatedCode = related.arcana === 'major' ? related.roman : related.rankEs
             return (
-              <button key={cardId} type="button" onClick={() => onOpenRelated(cardId)}>
-                <TarotCardArt card={related} size="tiny" />
-                <span>{related.shortName}</span>
+              <button key={cardId} className="detail-related-card" type="button" onClick={() => onOpenRelated(cardId)}>
+                <img src={related.image.thumb} alt="" loading="lazy" decoding="async" onError={hideBrokenImage} />
+                <span>{relatedCode ? `${relatedCode} • ${related.shortName}` : related.shortName}</span>
               </button>
             )
           })}
         </div>
       </section>
 
-      <div className="detail-actions">
-        <button type="button" onClick={onCopy}>Copiar</button>
-        <button type="button" onClick={onToggleFavorite}>{isFavorite ? 'Guardada' : 'Guardar'}</button>
-        <button type="button" onClick={onAddToSpread}>Tirada</button>
-        <button type="button" onClick={onOpenSpread} disabled={spreadCount === 0}>Ver {spreadCount}/3</button>
-      </div>
+      <nav className="detail-bottom-actions" aria-label="Acciones del detalle">
+        <button type="button" onClick={onCopy}>
+          <DetailIcon name="copy" />
+          <span>Copiar</span>
+        </button>
+        <i aria-hidden="true" />
+        <button type="button" onClick={onToggleFavorite}>
+          <DetailIcon name="bookmark" />
+          <span>{isFavorite ? 'Guardada' : 'Guardar'}</span>
+        </button>
+        <i aria-hidden="true" className="with-star" />
+        <button type="button" onClick={onAddToSpread}>
+          <DetailIcon name="spread" />
+          <span>Tirada</span>
+        </button>
+        <i aria-hidden="true" />
+        <button type="button" onClick={onOpenSpread} disabled={spreadCount === 0}>
+          <DetailIcon name="eye" />
+          <span>Ver {spreadCount}/3</span>
+        </button>
+      </nav>
     </main>
   )
 }
@@ -558,12 +644,14 @@ function PhotoPage({
   onStageChange,
   onOpenCard,
   onOpenSpread,
+  onAddCardToSpread,
   onAddDetectedToSpread,
 }: {
   stage: PhotoStage
   onStageChange: (stage: PhotoStage) => void
   onOpenCard: (cardId: string) => void
   onOpenSpread: () => void
+  onAddCardToSpread: (cardId: string, orientation: Orientation) => void
   onAddDetectedToSpread: () => void
 }) {
   if (stage === 'detected') {
@@ -582,32 +670,136 @@ function PhotoPage({
     return <CorrectionPage onBack={() => onStageChange('detected')} onConfirm={() => onStageChange('detected')} onOpenCard={onOpenCard} />
   }
 
-  return <CameraPage onDetected={() => onStageChange('detected')} />
+  return <CameraPage onCorrect={() => onStageChange('correct')} onOpenCard={onOpenCard} onAddCardToSpread={onAddCardToSpread} />
 }
 
-function CameraPage({ onDetected }: { onDetected: () => void }) {
+function CameraPage({
+  onCorrect,
+  onOpenCard,
+  onAddCardToSpread,
+}: {
+  onCorrect: () => void
+  onOpenCard: (cardId: string) => void
+  onAddCardToSpread: (cardId: string, orientation: Orientation) => void
+}) {
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const streamRef = useRef<MediaStream | null>(null)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
-  const [cameraState, setCameraState] = useState<'idle' | 'active' | 'denied' | 'unsupported'>('idle')
+  const stableFramesRef = useRef(0)
+  const scanTimerRef = useRef<number | undefined>(undefined)
+  const scanInFlightRef = useRef(false)
+  const lastBestCardIdRef = useRef<string | null>(null)
+  const [cameraState, setCameraState] = useState<CameraStatus>('idle')
+  const [scanStatus, setScanStatus] = useState<ScanStatus>('idle')
+  const [scanCandidates, setScanCandidates] = useState<CameraMatch[]>([])
+  const bestCandidate = scanCandidates[0]
 
-  useEffect(() => {
-    return () => stopCamera(streamRef.current)
-  }, [])
-
-  async function startCamera() {
+  const requestCamera = useCallback(async () => {
     if (!navigator.mediaDevices?.getUserMedia) {
       setCameraState('unsupported')
       return
     }
 
     try {
+      stableFramesRef.current = 0
+      lastBestCardIdRef.current = null
+      setScanCandidates([])
+      setScanStatus('scanning')
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false })
       streamRef.current = stream
       if (videoRef.current) videoRef.current.srcObject = stream
       setCameraState('active')
+      rememberCameraPermission()
     } catch {
       setCameraState('denied')
+      setScanStatus('idle')
+    }
+  }, [])
+
+  const scanCurrentVideoFrame = useCallback(async () => {
+    if (scanInFlightRef.current || !videoRef.current) return
+
+    scanInFlightRef.current = true
+    try {
+      const candidates = await matchCameraFrame(videoRef.current)
+      const bestId = candidates[0]?.card.id ?? null
+      stableFramesRef.current = bestId && bestId === lastBestCardIdRef.current ? stableFramesRef.current + 1 : 1
+      lastBestCardIdRef.current = bestId
+
+      if (candidates.length > 0 && isConfidentCameraMatch(candidates, stableFramesRef.current)) {
+        setScanCandidates(candidates)
+        setScanStatus('confident')
+        window.clearInterval(scanTimerRef.current)
+      }
+    } catch {
+      stableFramesRef.current = 0
+    } finally {
+      scanInFlightRef.current = false
+    }
+  }, [])
+
+  useEffect(() => {
+    const autoStartTimer = window.setTimeout(() => {
+      if (shouldAutoStartCamera()) void requestCamera()
+    }, 0)
+
+    return () => {
+      window.clearTimeout(autoStartTimer)
+      stopCamera(streamRef.current)
+    }
+  }, [requestCamera])
+
+  useEffect(() => {
+    window.clearInterval(scanTimerRef.current)
+
+    if (cameraState !== 'active' || scanStatus !== 'scanning') return
+
+    stableFramesRef.current = 0
+    scanTimerRef.current = window.setInterval(() => {
+      void scanCurrentVideoFrame()
+    }, 350)
+
+    return () => window.clearInterval(scanTimerRef.current)
+  }, [cameraState, scanStatus, scanCurrentVideoFrame])
+
+  function stopCurrentCamera() {
+    window.clearInterval(scanTimerRef.current)
+    stopCamera(streamRef.current)
+    streamRef.current = null
+    setCameraState('idle')
+    setScanStatus('idle')
+    setScanCandidates([])
+    stableFramesRef.current = 0
+    lastBestCardIdRef.current = null
+  }
+
+  async function scanManualFrame() {
+    window.clearInterval(scanTimerRef.current)
+    await resolveOneShotMatches(() => (videoRef.current ? matchCameraFrame(videoRef.current) : Promise.resolve([])))
+  }
+
+  async function scanUploadedImage(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.currentTarget.files?.[0]
+    event.currentTarget.value = ''
+    if (!file) return
+
+    window.clearInterval(scanTimerRef.current)
+    await resolveOneShotMatches(() => matchImageFile(file))
+  }
+
+  async function resolveOneShotMatches(getMatches: () => Promise<CameraMatch[]>) {
+    setScanStatus('scanning')
+    setScanCandidates([])
+    stableFramesRef.current = 0
+    lastBestCardIdRef.current = null
+
+    try {
+      const candidates = await getMatches()
+      setScanCandidates(candidates)
+      setScanStatus(isConfidentCameraMatch(candidates, 2) ? 'confident' : 'uncertain')
+    } catch {
+      setScanCandidates([])
+      setScanStatus('uncertain')
     }
   }
 
@@ -618,7 +810,7 @@ function CameraPage({ onDetected }: { onDetected: () => void }) {
         <div className="camera-vignette" />
       </div>
       <header className="camera-topbar">
-        <button className="round-glass" type="button" onClick={() => stopCamera(streamRef.current)} aria-label="Cerrar cámara">
+        <button className="round-glass" type="button" onClick={stopCurrentCamera} aria-label="Cerrar cámara">
           ×
         </button>
         <div className="brand-mark small" aria-hidden="true">
@@ -632,35 +824,84 @@ function CameraPage({ onDetected }: { onDetected: () => void }) {
       <div className="camera-toast">
         <span className="pulse-dot" />
         <span>
-          <strong>Enfocá 1 a 3 cartas</strong>
-          <small>{cameraState === 'active' ? 'Detectando bordes...' : 'Cámara local con fallback'}</small>
+          <strong>{cameraState === 'active' ? 'Apuntá a una carta' : 'Mostrame la carta'}</strong>
+          <small>{cameraState === 'active' ? getScanHint(scanStatus) : 'La leo en tu teléfono, sin subir la foto'}</small>
         </span>
       </div>
 
       <section className="camera-guides" aria-label="Guías de cartas">
-        <div />
-        <div />
-        <div />
+        <div className={`scan-frame ${scanStatus === 'confident' ? 'locked' : ''}`}>
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
       </section>
+
+      {bestCandidate && scanStatus === 'confident' && (
+        <section className="scan-sheet confident" aria-live="polite">
+          <div className="scan-result-main">
+            <TarotCardArt card={bestCandidate.card} size="small" />
+            <div>
+              <small>Detectada · {formatConfidence(bestCandidate.confidence)} confianza</small>
+              <h1>{bestCandidate.card.nameEs}</h1>
+              <p>{bestCandidate.card.oneLineUpright}</p>
+            </div>
+          </div>
+          <div className="scan-actions">
+            <button type="button" onClick={() => onOpenCard(bestCandidate.card.id)}>Ver interpretación</button>
+            <button type="button" onClick={() => onAddCardToSpread(bestCandidate.card.id, bestCandidate.orientation)}>Tirada</button>
+          </div>
+        </section>
+      )}
+
+      {scanStatus === 'uncertain' && scanCandidates.length > 0 && (
+        <section className="scan-sheet uncertain" aria-live="polite">
+          <div className="scan-sheet-title">
+            <h1>Creo que es una de estas</h1>
+            <p>Elegí la carta que coincide mejor.</p>
+          </div>
+          <div className="scan-candidates">
+            {scanCandidates.map((candidate) => (
+              <button key={candidate.card.id} type="button" onClick={() => onOpenCard(candidate.card.id)}>
+                <TarotCardArt card={candidate.card} size="tiny" />
+                <span>
+                  <strong>{candidate.card.shortName}</strong>
+                  <small>{formatConfidence(candidate.confidence)}</small>
+                </span>
+              </button>
+            ))}
+          </div>
+          <button className="scan-secondary" type="button" onClick={onCorrect}>No es ninguna</button>
+        </section>
+      )}
 
       <footer className="camera-controls">
         {cameraState !== 'active' && (
-          <button className="camera-start" type="button" onClick={() => void startCamera()}>
-            Activar cámara
-          </button>
+          <div className="camera-permission-card">
+            <h1>Reconocer carta</h1>
+            <p>Funciona mejor con Rider-Waite o mazos visualmente parecidos.</p>
+            <button className="camera-start" type="button" onClick={() => void requestCamera()}>
+              Permitir cámara
+            </button>
+            <button className="upload-button" type="button" onClick={() => fileInputRef.current?.click()}>
+              Subir foto
+            </button>
+          </div>
         )}
         {cameraState === 'denied' && <p>Necesito permiso de cámara. También podés subir una foto o buscar manualmente.</p>}
         {cameraState === 'unsupported' && <p>Esta cámara no está disponible en el navegador. Usá subir foto como fallback.</p>}
-        <div className="camera-action-row">
-          <span />
-          <button className="shutter" type="button" aria-label="Capturar foto" onClick={onDetected}>
-            <span />
-          </button>
-          <button className="upload-button" type="button" onClick={() => fileInputRef.current?.click()}>
-            Subir foto
-          </button>
-        </div>
-        <input ref={fileInputRef} className="visually-hidden" type="file" accept="image/*" onChange={onDetected} />
+        {cameraState === 'active' && scanStatus === 'scanning' && (
+          <div className="camera-action-row">
+            <button className="manual-capture" type="button" onClick={scanManualFrame}>
+              Capturar manual
+            </button>
+            <button className="upload-button" type="button" onClick={() => fileInputRef.current?.click()}>
+              Subir foto
+            </button>
+          </div>
+        )}
+        <input ref={fileInputRef} className="visually-hidden" type="file" accept="image/*" onChange={scanUploadedImage} />
       </footer>
     </main>
   )
@@ -1095,6 +1336,32 @@ function stopCamera(stream: MediaStream | null) {
   stream?.getTracks().forEach((track) => track.stop())
 }
 
+function rememberCameraPermission() {
+  try {
+    window.localStorage.setItem(cameraPermissionStorageKey, 'granted')
+  } catch {
+    // Storage can be unavailable in private contexts; camera permission still works.
+  }
+}
+
+function shouldAutoStartCamera() {
+  try {
+    return window.localStorage.getItem(cameraPermissionStorageKey) === 'granted'
+  } catch {
+    return false
+  }
+}
+
+function getScanHint(status: ScanStatus) {
+  if (status === 'confident') return 'Resultado local, sin subir la foto'
+  if (status === 'uncertain') return 'Elegí una candidata para continuar'
+  return 'Reconozco Rider-Waite en tu teléfono'
+}
+
+function formatConfidence(confidence: number) {
+  return `${Math.round(confidence * 100)}%`
+}
+
 async function copyText(text: string) {
   if (navigator.clipboard?.writeText) {
     await navigator.clipboard.writeText(text)
@@ -1110,6 +1377,101 @@ async function copyText(text: string) {
   textarea.select()
   document.execCommand('copy')
   document.body.removeChild(textarea)
+}
+
+function DetailIcon({ name }: { name: DetailIconName }) {
+  if (name === 'spark') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z" />
+      </svg>
+    )
+  }
+
+  if (name === 'reversed') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" />
+      </svg>
+    )
+  }
+
+  if (name === 'heart') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 8.3c0-2.5-2.1-4.5-4.7-4.5-1.9 0-3.6 1.1-4.3 2.7-.7-1.6-2.4-2.7-4.3-2.7C5.1 3.8 3 5.8 3 8.3c0 7.2 9 12 9 12s9-4.8 9-12z" />
+      </svg>
+    )
+  }
+
+  if (name === 'work') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 8.8c0-1.1.8-2 1.8-2.2A43 43 0 0 1 12 6.2c2.1 0 4.2.1 6.2.4 1.1.2 1.8 1.1 1.8 2.2v8.7c0 1.1-.8 2-1.9 2.2-2 .3-4.1.4-6.1.4s-4.1-.1-6.1-.4A2.2 2.2 0 0 1 4 17.5V8.8z" />
+        <path d="M8.5 6.2V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.2M4 12.5c2.5.9 5.1 1.3 8 1.3s5.5-.4 8-1.3M12 12.3h.01" />
+      </svg>
+    )
+  }
+
+  if (name === 'money') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 6v12M9 15.2l.9.6c1.2.9 3.1.9 4.2 0 1.2-.9 1.2-2.3 0-3.2-.6-.4-1.3-.6-2.1-.6-.7 0-1.5-.2-2-.7-1.1-.9-1.1-2.3 0-3.1s2.9-.9 4 0l.4.3" />
+        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+      </svg>
+    )
+  }
+
+  if (name === 'advice') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11.5 3.5a.6.6 0 0 1 1 0l2.1 5.1c.1.2.3.3.5.3l5.5.5c.5 0 .7.6.3 1l-4.2 3.6c-.2.1-.2.3-.2.5l1.3 5.4c.1.5-.4.9-.9.6l-4.7-2.9a.6.6 0 0 0-.6 0l-4.7 2.9c-.5.3-1-.1-.9-.6l1.3-5.4c0-.2 0-.4-.2-.5l-4.2-3.6c-.4-.4-.2-1 .3-1l5.5-.5c.2 0 .4-.1.5-.3l2.1-5.1z" />
+      </svg>
+    )
+  }
+
+  if (name === 'question') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9.9 7.5a3.1 3.1 0 0 1 4.2 0 2.4 2.4 0 0 1 0 3.7c-.2.2-.4.3-.7.5-.7.4-1.4 1-1.4 1.8v.7" />
+        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0zM12 17.3h.01" />
+      </svg>
+    )
+  }
+
+  if (name === 'eye') {
+    return (
+      <svg viewBox="0 0 60 60" aria-hidden="true">
+        <path d="M10 30Q30 10 50 30Q30 50 10 30z" />
+        <circle cx="30" cy="30" r="6" />
+        <circle cx="30" cy="30" r="2" fill="currentColor" />
+        <path d="M30 18V8M30 42v10M18 30H8M42 30h10M22 22l-7-7M38 38l7 7M38 22l7-7M22 38l-7 7" />
+      </svg>
+    )
+  }
+
+  if (name === 'copy') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2" />
+        <path d="M10 8h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z" />
+      </svg>
+    )
+  }
+
+  if (name === 'bookmark') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 4h12v17l-6-3.8L6 21z" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m14 0V9a2 2 0 0 0-2-2M5 11V9a2 2 0 0 1 2-2m0 0V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+    </svg>
+  )
 }
 
 function SunIcon() {
