@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "download:rws": "node scripts/download-rws-images.js",
     "images:cards": "node scripts/generate-card-images.js",
     "lint": "eslint .",
     "preview": "vite preview"

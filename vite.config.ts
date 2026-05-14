@@ -30,7 +30,8 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,webp,woff2,json}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2,json}'],
+        globIgnores: ['**/cards/source/**', '**/cards/full/**', '**/cards/thumb/**', '**/cards/blur/**', '**/cards/sprites/**'],
         navigateFallback: '/index.html',
         runtimeCaching: [
           {
