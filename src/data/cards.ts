@@ -44,7 +44,24 @@ export type TarotCard = {
   }
 }
 
-export const tarotCards: TarotCard[] = cardsData as TarotCard[]
+const publicBaseUrl = import.meta.env.BASE_URL
+
+function publicAsset(path: string) {
+  return `${publicBaseUrl}${path.replace(/^\//, '')}`
+}
+
+function withRuntimeAssetPaths(card: TarotCard): TarotCard {
+  return {
+    ...card,
+    image: {
+      full: publicAsset(card.image.full),
+      thumb: publicAsset(card.image.thumb),
+      blur: publicAsset(card.image.blur),
+    },
+  }
+}
+
+export const tarotCards: TarotCard[] = (cardsData as TarotCard[]).map(withRuntimeAssetPaths)
 
 export const cardsById = new Map(tarotCards.map((card) => [card.id, card]))
 

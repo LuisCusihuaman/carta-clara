@@ -1018,7 +1018,7 @@ function TarotCardArt({ card, size }: { card: TarotCard; size: 'tiny' | 'small' 
   return (
     <span className={`tarot-art tarot-art-${size} ${useSprite ? 'has-image' : ''}`} style={{ '--card-accent': card.accent } as CSSProperties}>
       {size === 'large' ? (
-        <img src={card.image.full} alt={card.nameEs} loading="lazy" decoding="async" onError={hideBrokenImage} />
+        <img src={card.image.full} alt={card.nameEs} loading="lazy" decoding="async" onError={(event) => fallbackToThumb(event, card.image.thumb)} />
       ) : sprite ? (
         <span
           className="tarot-sprite"
@@ -1055,6 +1055,15 @@ function getSpriteRows() {
 
 function hideBrokenImage(event: SyntheticEvent<HTMLImageElement>) {
   event.currentTarget.hidden = true
+}
+
+function fallbackToThumb(event: SyntheticEvent<HTMLImageElement>, thumbSrc: string) {
+  if (event.currentTarget.src !== new URL(thumbSrc, window.location.href).href) {
+    event.currentTarget.src = thumbSrc
+    return
+  }
+
+  hideBrokenImage(event)
 }
 
 function MeaningLine({ label, text }: { label: string; text: string }) {

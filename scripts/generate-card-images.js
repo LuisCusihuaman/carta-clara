@@ -88,6 +88,6 @@ async function writeSpriteData(entries) {
   const serialized = JSON.stringify(entries, null, 2)
   await writeFile(
     spriteDataPath,
-    `export type CardSpriteEntry = { x: number; y: number; w: number; h: number }\n\nexport const cardSprite: Record<string, CardSpriteEntry> = ${serialized}\n\nexport const cardSpriteImage = '/cards/sprites/thumbs.webp'\n\nexport const cardSpriteColumns = ${spriteColumns}\n`,
+    `export type CardSpriteEntry = { x: number; y: number; w: number; h: number }\n\nexport const cardSprite: Record<string, CardSpriteEntry> = ${serialized}\n\nexport const cardSpriteImage = \`\${import.meta.env.BASE_URL}cards/sprites/thumbs.webp\`\n\nexport const cardSpriteColumns = ${spriteColumns}\n`,
   )
 }

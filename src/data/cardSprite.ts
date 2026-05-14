@@ -471,6 +471,6 @@ export const cardSprite: Record<string, CardSpriteEntry> = {
   }
 }
 
-export const cardSpriteImage = '/cards/sprites/thumbs.webp'
+export const cardSpriteImage = `${import.meta.env.BASE_URL}cards/sprites/thumbs.webp`
 
 export const cardSpriteColumns = 10
