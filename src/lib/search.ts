@@ -1,3 +1,4 @@
+import MiniSearch, { type SearchResult as MiniSearchResult } from 'minisearch'
 import { popularCardIds, tarotCards, type Suit, type TarotCard } from '../data/cards'
 
 export type CardFilter = 'all' | 'major' | Suit
@@ -8,6 +9,14 @@ export type SearchResult = {
   reason: 'exact' | 'number' | 'keyword' | 'fuzzy' | 'popular'
 }
 
+type SearchDocument = TarotCard & {
+  numberText: string
+  suitText: string
+  rankText: string
+  keywords: string
+  contexts: string
+}
+
 export const filters: Array<{ id: CardFilter; label: string }> = [
   { id: 'all', label: 'Todos' },
   { id: 'major', label: 'Mayores' },
@@ -16,6 +25,9 @@ export const filters: Array<{ id: CardFilter; label: string }> = [
   { id: 'wands', label: 'Bastos' },
   { id: 'pentacles', label: 'Oros' },
 ]
+
+let miniSearch: MiniSearch<SearchDocument> | null = null
+let searchDocuments: SearchDocument[] | null = null
 
 export function normalizeText(value: string) {
   return value
@@ -35,6 +47,7 @@ export function filterCards(cards: TarotCard[], filter: CardFilter) {
 
 export function searchCards(query: string, filter: CardFilter = 'all', limit = 12): SearchResult[] {
   const source = filterCards(tarotCards, filter)
+  const sourceIds = new Set(source.map((card) => card.id))
   const normalizedQuery = normalizeText(query)
 
   if (!normalizedQuery) {
@@ -45,13 +58,21 @@ export function searchCards(query: string, filter: CardFilter = 'all', limit = 1
       .map((card) => ({ card, score: 1, reason: 'popular' }))
   }
 
-  const queryTokens = normalizedQuery.split(' ')
-  const scored = source
-    .map((card) => scoreCard(card, normalizedQuery, queryTokens))
+  const exactResults = source
+    .map((card) => scoreExact(card, normalizedQuery))
     .filter((result): result is SearchResult => result !== null)
-    .sort((a, b) => b.score - a.score || a.card.popularityRank - b.card.popularityRank)
 
-  return scored.slice(0, limit)
+  const miniResults = getMiniSearch()
+    .search(normalizedQuery, {
+      prefix: true,
+      fuzzy: 0.25,
+      boost: SEARCH_BOOSTS,
+    })
+    .map((result) => toSearchResult(result))
+    .filter((result): result is SearchResult => Boolean(result))
+    .filter((result) => sourceIds.has(result.card.id))
+
+  return mergeResults([...exactResults, ...miniResults]).slice(0, limit)
 }
 
 export function getPopularCards(limit = 7) {
@@ -61,14 +82,108 @@ export function getPopularCards(limit = 7) {
     .slice(0, limit)
 }
 
-function scoreCard(card: TarotCard, query: string, queryTokens: string[]): SearchResult | null {
-  const normalizedAliases = card.aliases.map(normalizeText)
-  const normalizedNameEs = normalizeText(card.nameEs)
-  const normalizedNameEn = normalizeText(card.nameEn)
-  const normalizedKeywords = [...card.keywordsUpright, ...card.keywordsReversed].map(normalizeText)
+const SEARCH_BOOSTS = {
+  nameEs: 10,
+  nameEn: 10,
+  aliases: 9,
+  roman: 8,
+  numberText: 8,
+  rankText: 8,
+  suitText: 7,
+  keywords: 6,
+  keywordsUpright: 6,
+  keywordsReversed: 6,
+  oneLineUpright: 4,
+  oneLineReversed: 4,
+  quickUpright: 2,
+  quickReversed: 2,
+  contexts: 1,
+}
+
+function getMiniSearch() {
+  if (miniSearch) return miniSearch
+
+  miniSearch = new MiniSearch<SearchDocument>({
+    fields: [
+      'nameEs',
+      'nameEn',
+      'aliases',
+      'roman',
+      'numberText',
+      'suitText',
+      'rankText',
+      'keywords',
+      'keywordsUpright',
+      'keywordsReversed',
+      'oneLineUpright',
+      'oneLineReversed',
+      'quickUpright',
+      'quickReversed',
+      'contexts',
+    ],
+    storeFields: ['id'],
+    searchOptions: {
+      boost: SEARCH_BOOSTS,
+      prefix: true,
+      fuzzy: 0.25,
+    },
+    processTerm: (term) => normalizeText(term),
+  })
+
+  miniSearch.addAll(getSearchDocuments())
+  return miniSearch
+}
+
+function getSearchDocuments() {
+  if (searchDocuments) return searchDocuments
+
+  searchDocuments = tarotCards.map((card) => ({
+    ...card,
+    aliases: card.aliases.map(normalizeText),
+    numberText: [card.number, card.roman]
+      .filter((value): value is number | string => value !== undefined)
+      .flatMap((value) => [String(value), `arcano ${value}`])
+      .map(normalizeText)
+      .join(' '),
+    suitText: [card.suitEs, card.suitEn].filter(Boolean).map(String).map(normalizeText).join(' '),
+    rankText: [
+      card.number && card.suitEs ? `${card.number} ${card.suitEs}` : '',
+      card.number && card.suitEs ? `${card.number} de ${card.suitEs}` : '',
+      card.number && card.suitEn ? `${card.number} ${card.suitEn}` : '',
+      card.rankEs && card.suitEs ? `${card.rankEs} ${card.suitEs}` : '',
+      card.rankEs && card.suitEs ? `${card.rankEs} de ${card.suitEs}` : '',
+      card.rankEn && card.suitEn ? `${card.rankEn} ${card.suitEn}` : '',
+      card.rankEn && card.suitEn ? `${card.rankEn} of ${card.suitEn}` : '',
+    ]
+      .filter(Boolean)
+      .map(normalizeText)
+      .join(' '),
+    keywords: [...card.keywordsUpright, ...card.keywordsReversed].map(normalizeText).join(' '),
+    contexts: [
+      card.loveUpright,
+      card.loveReversed,
+      card.workUpright,
+      card.workReversed,
+      card.moneyUpright,
+      card.moneyReversed,
+      card.adviceUpright,
+      card.adviceReversed,
+      card.yesNo,
+    ]
+      .map(normalizeText)
+      .join(' '),
+  }))
+
+  return searchDocuments
+}
+
+function scoreExact(card: TarotCard, query: string): SearchResult | null {
+  const aliases = card.aliases.map(normalizeText)
+  const names = [card.nameEs, card.nameEn, card.shortName].map(normalizeText)
   const numberValues = [card.number, card.roman]
     .filter((value): value is number | string => value !== undefined)
-    .flatMap((value) => [normalizeText(String(value)), normalizeText(`arcano ${value}`)])
+    .flatMap((value) => [String(value), `arcano ${value}`])
+    .map(normalizeText)
   const rankSuitValues = [
     card.number && card.suitEs ? `${card.number} ${card.suitEs}` : '',
     card.number && card.suitEs ? `${card.number} de ${card.suitEs}` : '',
@@ -81,103 +196,49 @@ function scoreCard(card: TarotCard, query: string, queryTokens: string[]): Searc
     .filter(Boolean)
     .map(normalizeText)
 
-  let score = 0
-  let reason: SearchResult['reason'] = 'keyword'
-
-  if (normalizedNameEs === query || normalizedNameEn === query || normalizedAliases.includes(query)) {
-    score += 1200
-    reason = 'exact'
+  if ([...names, ...aliases].includes(query)) {
+    return { card, score: 12000, reason: 'exact' }
   }
 
-  if (numberValues.includes(query) || rankSuitValues.includes(query)) {
-    score += 1050
-    reason = 'number'
+  if ([...numberValues, ...rankSuitValues].includes(query)) {
+    return { card, score: 10500, reason: 'number' }
   }
 
-  if (normalizedNameEs.startsWith(query) || normalizedNameEn.startsWith(query)) {
-    score += 850
-    reason = 'exact'
-  }
-
-  if (normalizedAliases.some((alias) => alias.startsWith(query))) {
-    score += 780
-    reason = 'exact'
+  if ([...names, ...aliases].some((value) => value.startsWith(query))) {
+    return { card, score: 8500, reason: 'exact' }
   }
 
   if (rankSuitValues.some((value) => value.includes(query))) {
-    score += 700
-    reason = 'number'
+    return { card, score: 7000, reason: 'number' }
   }
 
-  const keywordHits = normalizedKeywords.filter((keyword) => keyword.includes(query) || query.includes(keyword)).length
-  if (keywordHits > 0) {
-    score += keywordHits * 180
-    reason = score > 900 ? reason : 'keyword'
+  return null
+}
+
+function toSearchResult(result: MiniSearchResult): SearchResult | null {
+  const card = tarotCards.find((item) => item.id === result.id)
+  if (!card) return null
+
+  const reason = result.terms?.some((term) => card.keywordsUpright.concat(card.keywordsReversed).map(normalizeText).includes(term))
+    ? 'keyword'
+    : 'fuzzy'
+
+  return {
+    card,
+    score: result.score * 100,
+    reason,
   }
+}
 
-  const searchBlob = normalizeText(
-    [
-      card.nameEs,
-      card.nameEn,
-      ...card.aliases,
-      ...card.keywordsUpright,
-      ...card.keywordsReversed,
-      card.oneLineUpright,
-      card.oneLineReversed,
-      card.quickUpright,
-      card.quickReversed,
-      card.loveUpright,
-      card.workUpright,
-      card.moneyUpright,
-      card.adviceUpright,
-      card.suitEs ?? '',
-      card.suitEn ?? '',
-      card.rankEs ?? '',
-      card.rankEn ?? '',
-    ].join(' '),
-  )
+function mergeResults(results: SearchResult[]) {
+  const merged = new Map<string, SearchResult>()
 
-  const tokenHits = queryTokens.filter((token) => searchBlob.includes(token)).length
-  if (tokenHits === queryTokens.length) score += 120 + tokenHits * 35
-  else if (tokenHits > 0) score += tokenHits * 25
-
-  if (query.length >= 4) {
-    const fuzzyScore = bestFuzzyScore(query, [...normalizedAliases, normalizedNameEs, normalizedNameEn])
-    if (fuzzyScore > 0) {
-      score += fuzzyScore
-      reason = score > 900 ? reason : 'fuzzy'
+  for (const result of results) {
+    const existing = merged.get(result.card.id)
+    if (!existing || result.score > existing.score) {
+      merged.set(result.card.id, result)
     }
   }
 
-  if (score <= 0) return null
-  return { card, score, reason }
-}
-
-function bestFuzzyScore(query: string, aliases: string[]) {
-  return aliases.reduce((best, alias) => {
-    if (!alias || Math.abs(alias.length - query.length) > 5) return best
-    const distance = levenshtein(query, alias)
-    const tolerance = Math.min(3, Math.max(1, Math.floor(alias.length * 0.25)))
-    if (distance > tolerance) return best
-    return Math.max(best, 420 - distance * 90)
-  }, 0)
-}
-
-function levenshtein(a: string, b: string) {
-  const matrix = Array.from({ length: b.length + 1 }, (_, row) => [row])
-
-  for (let column = 0; column <= a.length; column += 1) {
-    matrix[0][column] = column
-  }
-
-  for (let row = 1; row <= b.length; row += 1) {
-    for (let column = 1; column <= a.length; column += 1) {
-      matrix[row][column] =
-        b.charAt(row - 1) === a.charAt(column - 1)
-          ? matrix[row - 1][column - 1]
-          : Math.min(matrix[row - 1][column - 1] + 1, matrix[row][column - 1] + 1, matrix[row - 1][column] + 1)
-    }
-  }
-
-  return matrix[b.length][a.length]
+  return Array.from(merged.values()).sort((a, b) => b.score - a.score || a.card.popularityRank - b.card.popularityRank)
 }
